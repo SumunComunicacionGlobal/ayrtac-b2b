@@ -1,7 +1,11 @@
-<!-- wp:template-part {"slug":"header","tagName":""} /-->
+<!-- wp:template-part {"slug":"header","theme":"ayrtac","tagName":"Header","className":"masthead"} /-->
 
-<!-- wp:group {"tagName":"main","metadata":{"name":"Main"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-<main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)"><!-- wp:post-content {"layout":{"type":"constrained"}} /--></main>
-<!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer","tagName":""} /-->
+<!-- wp:group {"tagName":"main","metadata":{"name":"Main"},"style":{"spacing":{"margin":{"top":"0"}}}} -->
+<main class="wp-block-group" style="margin-top:0"><!-- wp:group {"metadata":{"name":"Hero"},"style":{"spacing":{"padding":{"top":"12rem"}}},"backgroundColor":"neutral-30","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group has-neutral-30-background-color has-background" style="padding-top:12rem"><!-- wp:post-title {"level":1,"fontSize":"display"} /--></div>
+    <!-- /wp:group -->
+    <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</main>
+ <!-- /wp:group -->
+    
+<!-- wp:template-part {"slug":"footer","theme":"ayrtac","tagName":"Footer"} /-->

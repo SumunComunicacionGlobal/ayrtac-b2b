@@ -34,18 +34,13 @@ wp.domReady( () => {
 	] );
 	wp.blocks.registerBlockStyle( 'core/button', [
 		{
-			name: 'default',
-			label: 'Default',
-			isDefault: true,
-		},
-		{
 			name: 'with-arrow',
 			label: 'Con Flecha',
 		},
 		{
 			name: 'outline-with-arrow',
 			label: 'Contorno con Flecha',
-		},
+		}
 	] );
 	wp.blocks.registerBlockStyle( 'core/paragraph', [
 		{

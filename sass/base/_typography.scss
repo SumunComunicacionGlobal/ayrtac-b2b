@@ -4,7 +4,7 @@
 }
 
 [class*="has-heading-"][class*="-font-size"] {
-    line-height: var(--wp--custom--line-height--tiny);
+    line-height: var(--wp--custom--line-height--heading);
     font-family: var(--wp--preset--font-family--font-heading);
 }
 

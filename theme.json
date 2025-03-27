@@ -1,5 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+	
 	"settings": {
 		"appearanceTools": true,
 		"blocks": {
@@ -185,7 +186,7 @@
 				"tight": "-.01em"
 			},
 			"line-height": {
-				"heading": 0.75,
+				"heading": 1.2,
 				"normal": 1.5,
 				"tiny": 1
 			}
@@ -308,12 +309,12 @@
 			"fontSizes": [
 				{
 					"name": "Display",
-					"size": "clamp(3rem, 8.8vw, 6.5rem)",
+					"size": "clamp(3rem, 8.8vw, 6.25rem)",
 					"slug": "display"
 				},
 				{
 					"name": "H1",
-					"size": "clamp(2.5rem, 4.8vw, 4rem)",
+					"size": "clamp(2.5rem, 4.8vw, 3rem)",
 					"slug": "heading-1"
 				},
 				{
@@ -464,7 +465,7 @@
 		"elements": {
 			"button": {
 				"border": {
-					"radius": "var(--wp--custom--border-radius--rounded)",
+					"radius": "var(--wp--custom--border-radius--zero)",
 					"width": "0px"
 				},
 				"color": {
@@ -475,9 +476,10 @@
 					"padding": "calc(0.5rem + 0px) 2rem"
 				},
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--font-main)",
-					"fontSize": "var(--wp--preset--font-size--body)",
-					"lineHeight": "var(--wp--custom--line-height--normal)"
+					"fontFamily": "var(--wp--preset--font-family--font-heading)",
+					"fontSize": "var(--wp--preset--font-size--heading-6)",
+					"lineHeight": "var(--wp--custom--line-height--normal)",
+					"textTransform": "uppercase"
 				}
 			},
 			"caption": {
@@ -556,5 +558,24 @@
 			"lineHeight": "var(--wp--custom--line-height--normal)"
 		}
 	},
-	"version": 3
+
+	
+	"version": 3,
+	
+	"patterns" : [
+		"ayrtac/hero-sector"
+	],
+
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header",
+			"title": "Header"
+		},
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Footer"
+		}
+	]
 }
