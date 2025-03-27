@@ -1,0 +1,25 @@
+@use '../abstracts/mixins' as *;
+
+:where(.wp-block-group.has-background) {
+    padding: var(--wp--custom--layout--block-gap);
+}
+
+@media ($above-tablet) {
+    body {
+        --wp--style--root--padding-right: 4rem;
+        --wp--style--root--padding-left: 4rem;
+    }  
+}
+
+
+body .is-layout-flow {
+
+    & > .wp-block-image.alignright {
+        margin-inline-start: 0;
+    }
+
+    & > .wp-block-image.alignleft {
+        margin-inline-end: 0;
+    }
+
+} 

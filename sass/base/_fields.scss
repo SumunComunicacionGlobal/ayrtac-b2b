@@ -1,0 +1,73 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	border-radius: 0;
+	border: 0;
+	color: var(--wp--preset--color--foreground);
+	background-color: var(--wp--preset--color--background);
+	line-height: 1;
+	padding: 12px var(--wp--preset--spacing--10);
+	width: 100%;
+	max-height: 3rem;
+
+	&:focus {
+		//outline-color: var(--wp--preset--color--accent);
+	}
+
+	&::placeholder {
+		color: inherit;
+		opacity: 1; /* Firefox */
+		font-style: italic;
+	}
+	  
+	&::-ms-input-placeholder { /* Edge 12 -18 */
+		color: inherit;
+	}
+
+}
+
+select {
+	border-radius: var(--wp--custom--border-radius--rounded);
+	border: 2px solid;
+	padding: 7px var(--wp--preset--spacing--10);
+}
+
+textarea {
+	width: 100%;
+}
+
+button[type="submit"], input[type="submit"] {
+	background-color: transparent;
+	color: inherit;
+	border: 2px solid;
+	font-weight: bold;
+	border-radius: var(--wp--custom--border-radius--rounded);
+	padding: calc(0.5rem + 4px) 1.5em;
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		margin-left: .5rem;
+		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
+		mask-image: url(./assets/icons/arrow-right.svg);
+		mask-size: cover;
+		mask-repeat: no-repeat;
+		transition: padding-left 0.3s ease;
+	}
+}

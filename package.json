@@ -1,0 +1,35 @@
+{
+  "name": "ayrtac",
+  "version": "1.0.0",
+  "description": "Theme WP Ayrtac",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SumunComunicacionGlobal/ayrtac-b2b.git"
+  },
+  "keywords": [
+    "sass",
+    "wordpress",
+    "woocommerce"
+  ],
+  "author": "Alvaro Rubioc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SumunComunicacionGlobal/ayrtac-b2b/issues"
+  },
+  "homepage": "https://github.com/SumunComunicacionGlobal/ayrtac-b2b#readme",
+  "devDependencies": {
+    "@wordpress/stylelint-config": "^23.1.0",
+    "dir-archiver": "^2.1.0",
+    "sass": "^1.79.4",
+    "stylelint": "^16.9.0",
+    "uglify-js": "^3.19.0"
+  },
+  "scripts": {
+    "watch": "sass --watch sass:./ --no-source-map --style compressed",
+    "compile:css": "sass sass:./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:js": "uglifyjs assets/js/*.js > assets/js/ayrtac.min.js",
+    "bundle": "dir-archiver --src . --dest ../ayrtac.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
+    "sync": "browser-sync start --proxy 'http://localhost:8888/ayrtac-b2b/' --files ['**/*.php', '*.*']",
+    "dev": "npm run watch & npm run sync"
+  }
+}

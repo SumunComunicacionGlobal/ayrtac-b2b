@@ -1,0 +1,46 @@
+.wp-block-buttons .wp-block-button:not([class*="-with-arrow"]) .wp-block-button__link {
+	transition: transform 0.3s ease;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.wp-block-button.is-style-with-arrow .wp-block-button__link,
+.wp-block-button.is-style-outline-with-arrow .wp-block-button__link {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 0.5rem;
+	transition: 0.3s ease;
+
+	&:hover {
+		gap: 1rem;
+	}
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 32px;
+		height: 24px;
+		margin-left: .5rem;
+		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
+		mask-image: url(./assets/icons/icon-arrow-btn.svg);
+		mask-size: cover;
+		mask-repeat: no-repeat;
+		transition: padding-left 0.3s ease;
+	}
+
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+	padding: calc(0.5rem - 2px) 2rem !important;
+}
+
+.wp-block-button.is-style-outline-with-arrow .wp-block-button__link {
+	background-color: transparent;
+	border-color: currentColor;
+    border-width: 2px;
+    border-style: solid;
+    color: currentColor;
+	padding: calc(0.5rem - 2px) 2rem !important;
+}

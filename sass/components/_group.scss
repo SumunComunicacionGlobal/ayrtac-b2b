@@ -1,0 +1,43 @@
+@use '../abstracts/mixins' as *;
+
+.is-style-group-horizontal-scroll {
+    padding: var(--wp--preset--spacing--10);
+    gap: var(--wp--custom--layout--block-gap);
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    transition: all 0.2s;
+    will-change: transform;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &.active {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+        user-select: none;
+    }
+
+    & > .wp-block-group, & > .wc-block-product  {
+        flex: 0 0 auto !important;
+        max-width: 296px;
+        margin-block-start: 0;
+
+        @media ($below-mobile-xs) {
+            max-width: 242px;
+        }
+    }
+}
+
+.wp-block-group.is-layout-grid {
+    @media ($below-mobile) {
+        grid-template-columns: 1fr;
+    }
+}

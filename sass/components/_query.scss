@@ -1,0 +1,17 @@
+.wp-block-query {
+    .wp-block-post {
+
+        & > .wp-block-group.has-background-background-color {
+            border-radius: var(--wp--custom--border-radius--md);
+        }
+        
+        .wp-block-post-featured-image img {
+            border-radius: var(--wp--custom--border-radius--md) var(--wp--custom--border-radius--md) 0 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+

@@ -1,0 +1,19 @@
+@use '../abstracts/mixins' as *;
+
+#colophon {
+
+    ul.wp-block-navigation.is-style-arrow-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--wp--preset--spacing--40);
+
+        @media ($below-mobile) {
+            grid-template-columns: 1fr;
+            gap: var(--wp--preset--spacing--20);
+        }
+
+        li:after {
+            filter: invert(1) grayscale(100) contrast(100);
+        }
+    }
+}

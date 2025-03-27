@@ -1,0 +1,12 @@
+// Dar estilos y agregar la medida en px al core-block/spacer
+.components-resizable-box__container.block-library-spacer__resize-container {
+    background-color: var(--wp--preset--color--primary-30);
+
+    &:before {
+        content: attr(data-spaceheight);
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+}

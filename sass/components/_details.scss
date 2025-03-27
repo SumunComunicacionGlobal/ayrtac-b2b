@@ -1,0 +1,51 @@
+details {
+    position: relative;
+    max-height: 3rem;
+    transition: .5s ease-in-out;
+    transition-behavior: allow-discrete;
+
+    summary {
+        display: block;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .wp-block-details--content {
+        //animation: scaleUp 2s ease-in-out forwards; 
+        border: 1px solid red;
+    }
+
+    &[open]   {
+        max-height: 100vh;
+        /* calc-size() function allows transition to height: auto; */
+        //block-size: calc-size(auto);
+
+        .wp-block-details--content {
+            animation: scaleUp 0.3s ease-in-out forwards; 
+        }
+    }
+}
+
+
+@keyframes scaleUp {
+    from {
+        display: none;
+        opacity: 0;
+    }
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.starting-style {
+    animation: scaleUp 0.3s ease-in-out forwards;
+}
+
+
+details[open] span::before {
+    rotate: 90deg;
+    transition: rotate 200ms ease-out;
+}
