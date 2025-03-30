@@ -25,11 +25,27 @@ main {
 	}
 }
 
+@keyframes move-down-block {
+	0% {
+		transform: translateY(12rem);
+	}
+
+	100% {
+		transform: translateY(-6rem);	
+	}
+}
+
 @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: scroll()) {
   
         .move-up-block {
             animation: move-up-block ease-in-out both;
+            animation-timeline: view();
+            transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
+        }
+
+        .move-down-block {
+            animation: move-down-block ease-in-out both;
             animation-timeline: view();
             transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
         }
