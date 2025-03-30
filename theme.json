@@ -536,9 +536,9 @@
 			"link": {
 				"color": {
 					"text": "var(--wp--custom--color--link)"
-				},
+				}, 
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--font-main)"
+					"textDecoration": "none"
 				}
 			},
 			"cite": {
