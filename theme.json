@@ -95,6 +95,11 @@
 					"color": "#001D28"
 				},
 				{
+					"name": "White",
+					"slug": "neutral-white",
+					"color": "#FFFFFF"
+				},
+				{
 					"name": "Neutral 10",
 					"slug": "neutral-10",
 					"color": "#FAFAF9"

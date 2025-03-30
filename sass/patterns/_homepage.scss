@@ -52,3 +52,84 @@ main {
     }
 }
 
+
+#video-wall {
+    overflow: hidden;
+
+    @media ($below-mobile) {
+        .wp-block-cover {
+            
+            color: var(--wp--preset--color--neutral-10);
+
+            .wp-block-cover__inner-container {
+                a {
+                    color: var(--wp--preset--color--neutral-10) !important;
+                    
+                    img {
+                        width: 2.25rem !important;
+                        translate: .5rem 0;
+                    }
+                }
+            }
+
+            .wp-block-safe-svg-svg-icon {
+                width: 3rem !important;
+            }
+        }        
+    }
+
+    @media ($above-tablet) {
+        .wp-block-cover {
+            
+            //transition: color .5s ease-in-out;
+    
+            .wp-block-cover__inner-container {
+                a {
+                    color: var(--wp--preset--color--foreground);
+                    display: flex;
+                    flex-wrap: nowrap;
+                    transition: color 0.3s ease-in-out;
+
+                    img {
+                        opacity: 0;
+                        translate: -1rem 0;
+                        transition: translate 0.3s ease-in-out, opacity 0.5s ease-in-out;
+                    }
+                }
+
+                .wp-block-safe-svg-svg-icon svg {
+                    transition: color 0.2s ease-in-out;
+                }
+            }
+
+            .wp-block-cover__video-background,
+            .wp-block-cover__background {
+               opacity: 0;
+               transition: opacity 0.5s ease-in-out;
+            }
+
+            &:hover {
+                color: var(--wp--preset--color--neutral-10);
+                
+                .wp-block-cover__video-background {
+                   opacity: 1;
+                }
+
+                .wp-block-cover__background {
+                    opacity: .3;
+                }
+
+                .wp-block-cover__inner-container {
+                    a {
+                        color: var(--wp--preset--color--neutral-10);
+
+                        img {
+                            opacity: 1;
+                            translate: .5rem 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
