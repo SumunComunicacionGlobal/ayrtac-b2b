@@ -1,0 +1,23 @@
+@use '../abstracts/mixins' as *;
+
+.wp-block-media-text {
+
+    .wp-block-media-text__content {
+        padding: 0 0 0 var(--wp--custom--layout--block-gap-large);
+    }
+    
+    &.has-media-on-the-right {
+
+        .wp-block-media-text__content {
+            padding: 0 var(--wp--custom--layout--block-gap-large) 0 0;
+        }
+    }
+
+    @media ($below-mobile) {
+        gap: var(--wp--custom--layout--block-gap-large);
+
+        .wp-block-media-text__content {
+            padding: 0;
+        }
+    }
+}

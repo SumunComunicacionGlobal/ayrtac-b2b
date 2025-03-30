@@ -1,0 +1,89 @@
+@use '../abstracts/mixins' as *;
+
+.woocommerce-account .wp-block-post-title,
+.woocommerce-account main .woocommerce,
+.woocommerce-cart .wp-block-post-title,
+.woocommerce-cart main .woocommerce,
+.woocommerce-checkout .wp-block-post-title,
+.woocommerce-checkout main .woocommerce {
+    max-width: var(--wp--custom--layout--content);
+}
+
+.wc-block-product-template__responsive.columns-3,
+.wc-block-product-template__responsive.columns-4 {
+    gap: 0;
+    border: 1px solid var(--wp--preset--color--neutral-60);
+
+    li.wc-block-product {
+        border-right: 1px solid var(--wp--preset--color--neutral-60);
+
+        &:last-of-type {
+            border-right: none;
+        }
+    }
+
+    @media ($below-mobile) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wc-block-product-template__responsive.columns-3 > li:first-child:nth-last-child(1) {
+    grid-column: 2 / 3; /* Ubica el único elemento en la segunda columna */
+}
+
+.wp-block-group.woocommerce.product {
+    margin-top: 0 !important;
+}
+
+.woocommerce table.variations tr td, .woocommerce table.variations tr th {
+    padding-bottom: .5rem !important;
+    padding-right: 2rem !important;
+
+    label {
+        font-weight: 400 !important; 
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0 !important;
+
+        &[for*="pa_"] {
+            &::before {
+                display: block;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+        &[for="pa_capacidad"] {
+            &::before {
+                content: url("./assets/icons/icon-capacity.svg");
+            }
+        }
+        &[for="pa_color"] {
+            &::before {
+                content: url("./assets/icons/icon-capacity.svg");
+            }
+        }
+        &[for="pa_cierre"] {
+            &::before {
+                content: url("./assets/icons/icon-capacity.svg");
+            }
+        }
+        &[for="pa_forma"] {
+            &::before {
+                content: url("./assets/icons/icon-capacity.svg");
+            }
+        }
+    }
+}
+
+.woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-variable-item).selected {
+    box-shadow: 0 0 0 2px var(--wp--preset--color--primary) !important;
+}
+
+.wc-block-product-categories__button {
+    border-radius: 99px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+

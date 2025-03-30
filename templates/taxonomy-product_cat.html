@@ -1,0 +1,145 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","metadata":{"name":"Main"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<main class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:cover {"useFeaturedImage":true,"dimRatio":40,"overlayColor":"neutral-100","isUserOverlayColor":true,"isDark":false,"metadata":{"name":"Hero Category Woo","categories":["custom-registered-category","featured"],"patternName":"ayrtac/hero-sector"},"align":"full","style":{"spacing":{"padding":{"top":"12rem","bottom":"var:preset|spacing|60","right":"var:preset|spacing|30","left":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|neutral-10"}}}},"textColor":"neutral-10","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull is-light has-neutral-10-color has-text-color has-link-color" style="margin-top:0;margin-bottom:0;padding-top:12rem;padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)" id="hero"><span aria-hidden="true" class="wp-block-cover__background has-neutral-100-background-color has-background-dim-40 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:query-title {"type":"archive","showPrefix":false,"fontSize":"display"} /-->
+
+<!-- wp:paragraph {"metadata":{"name":"Catálogo"},"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"heading-1"} -->
+<p class="has-heading-1-font-size" style="text-transform:uppercase">Catálogo</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"layout":{"type":"constrained","contentSize":"488px","justifyContent":"left"}} -->
+<div class="wp-block-group"><!-- wp:term-description /--></div>
+<!-- /wp:group -->
+
+<!-- wp:spacer {"height":"40px","className":"hidden-mobile"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer hidden-mobile"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:spacer {"height":"40px","metadata":{"name":"Espaciador (hide mobile)"}} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:safe-svg/svg-icon {"svgURL":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg","alignment":"right","imageID":875,"imageWidth":176,"imageHeight":175,"dimensionWidth":176,"dimensionHeight":175,"imageSizes":{"full":{"file":"sello-aceite.svg","width":176,"height":175,"mime_type":"image/svg+xml","source_url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg"},"medium":{"width":"512","height":"512","crop":false,"file":"sello-aceite.svg","mime_type":"image/svg+xml","source_url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg"},"thumbnail":{"width":"256","height":"256","crop":"1","file":"sello-aceite.svg","mime_type":"image/svg+xml","source_url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg"}}} /--></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}},"elements":{"link":{"color":{"text":"var:preset|color|neutral-10"}}}},"backgroundColor":"primary-90","textColor":"neutral-10","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-neutral-10-color has-primary-90-background-color has-text-color has-background has-link-color" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20)"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:woocommerce/product-results-count /-->
+
+<!-- wp:woocommerce/catalog-sorting /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Avisos"},"align":"wide","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide"><!-- wp:woocommerce/store-notices {"align":""} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:woocommerce/product-collection {"queryId":19,"query":{"woocommerceAttributes":[],"woocommerceStockStatus":["instock","outofstock","onbackorder"],"taxQuery":[],"isProductCollectionBlock":true,"perPage":10,"pages":0,"offset":0,"postType":"product","order":"asc","orderBy":"title","author":"","search":"","exclude":[],"sticky":"","inherit":true},"tagName":"div","displayLayout":{"type":"flex","columns":3,"shrinkColumns":true},"dimensions":{"widthType":"fill","fixedWidth":""},"queryContextIncludes":["collection"],"__privatePreviewState":{"isPreview":false,"previewMessage":"Los productos reales pueden diferir en función de la página en la que se estén viendo."},"align":"wide"} -->
+<div class="wp-block-woocommerce-product-collection alignwide"><!-- wp:woocommerce/product-template -->
+<!-- wp:block {"ref":942} /-->
+<!-- /wp:woocommerce/product-template -->
+
+<!-- wp:group {"metadata":{"name":"Pagination"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"className":"mt-4","fontSize":"subtitle","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination --></div>
+<!-- /wp:group -->
+
+<!-- wp:woocommerce/product-collection-no-results -->
+<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","flexWrap":"wrap"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>No se han encontrado resultados</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Puedes probar <a class="wc-link-clear-any-filters" href="#">vaciando cualquier filtro</a> o yendo a nuestro <a class="wc-link-stores-home" href="#">inicio de la tienda</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- /wp:woocommerce/product-collection-no-results --></div>
+<!-- /wp:woocommerce/product-collection --></main>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Video"},"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:cover {"url":"http://localhost:3000/ayrtac-b2b/wp-content/uploads/video-bg-sector-botellas-aceite.mp4","id":961,"dimRatio":40,"overlayColor":"ast-global-color-6","isUserOverlayColor":true,"backgroundType":"video","contentPosition":"bottom center","isDark":false,"align":"full","style":{"elements":{"link":{"color":{"text":"var:preset|color|ast-global-color-4"}}},"spacing":{"padding":{"top":"0","bottom":"0","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"textColor":"ast-global-color-4","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull is-light has-custom-content-position is-position-bottom-center has-ast-global-color-4-color has-text-color has-link-color" style="padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:0;padding-left:var(--wp--preset--spacing--30)"><span aria-hidden="true" class="wp-block-cover__background has-ast-global-color-6-background-color has-background-dim-40 has-background-dim"></span><video class="wp-block-cover__video-background intrinsic-ignore" autoplay muted loop playsinline src="http://localhost:3000/ayrtac-b2b/wp-content/uploads/video-bg-sector-botellas-aceite.mp4" data-object-fit="cover"></video><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Escribe el título…","fontSize":"large"} -->
+<p class="has-text-align-center has-large-font-size"></p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:cover --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"CTA + Empresas grupo"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:columns {"verticalAlignment":null} -->
+<div class="wp-block-columns"><!-- wp:column {"verticalAlignment":"bottom","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|80"}}}} -->
+<div class="wp-block-column is-vertically-aligned-bottom" style="padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:group {"metadata":{"name":"CTA"},"style":{"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"504px","justifyContent":"left"}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:group {"className":"move-up-block","style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-10"}}},"spacing":{"blockGap":"var:preset|spacing|60"}},"backgroundColor":"primary-100","textColor":"neutral-10","layout":{"type":"default"}} -->
+<div class="wp-block-group move-up-block has-neutral-10-color has-primary-100-background-color has-text-color has-background has-link-color"><!-- wp:paragraph {"placeholder":"Escribe el título…","style":{"typography":{"textTransform":"uppercase"}},"fontSize":"heading-2"} -->
+<p class="has-heading-2-font-size" style="text-transform:uppercase">Contacta con nuestro experto en botellas para aceite</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-with-arrow"} -->
+<div class="wp-block-button is-style-with-arrow"><a class="wp-block-button__link wp-element-button" href="http://localhost:8888/ayrtac-b2b/contactar/">Contacta</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:group {"style":{"layout":{"selfStretch":"fixed","flexSize":"50%"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"heading-4"} -->
+<p class="has-heading-4-font-size" style="text-transform:uppercase">Enfracados</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Si deseas realizar pedidos de volumen pequeño, por poco que parezca, ¡este es tu sitio!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"},"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"textColor":"foreground","fontSize":"small"} -->
+<p class="has-foreground-color has-text-color has-link-color has-small-font-size" style="text-transform:uppercase"><a href="https://enfrascados.shop/" target="_blank" rel="noreferrer noopener"><strong>Enfrascados</strong></a><a href="https://enfrascados.shop/"><strong>.shop</strong></a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:safe-svg/svg-icon {"svgURL":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-enfrascados.svg","imageID":1000,"imageWidth":103,"imageHeight":101,"dimensionWidth":103,"dimensionHeight":101,"imageSizes":{"full":{"height":101,"width":103,"url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-enfrascados.svg","orientation":"portrait"},"medium":{"url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-enfrascados.svg","height":"512","width":"512","orientation":"landscape"},"thumbnail":{"url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-enfrascados.svg","height":"256","width":"256","orientation":"landscape"}}} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"stretch","width":"4%","className":"hidden-mobile hidden-tablet"} -->
+<div class="wp-block-column is-vertically-aligned-stretch hidden-mobile hidden-tablet" style="flex-basis:4%"></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"stretch","width":"1px","className":"hidden-mobile hidden-tablet","style":{"border":{"left":{"color":"var:preset|color|neutral-60","width":"1px"},"top":[],"right":[],"bottom":[]}}} -->
+<div class="wp-block-column is-vertically-aligned-stretch hidden-mobile hidden-tablet" style="border-left-color:var(--wp--preset--color--neutral-60);border-left-width:1px;flex-basis:1px"></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"stretch","width":"4%","className":"hidden-mobile hidden-tablet"} -->
+<div class="wp-block-column is-vertically-aligned-stretch hidden-mobile hidden-tablet" style="flex-basis:4%"></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"bottom","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|80"}}}} -->
+<div class="wp-block-column is-vertically-aligned-bottom" style="padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:group {"style":{"layout":{"selfStretch":"fixed","flexSize":"60%"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"heading-4"} -->
+<p class="has-heading-4-font-size" style="text-transform:uppercase">Ayrtac maquinaria</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Diseñamos, fabricamos e instalamos algunas de las máquinas de llenado y cerrado más avanzadas del mundo.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"},"elements":{"link":{"color":{"text":"var:preset|color|foreground"}}}},"textColor":"foreground","fontSize":"small"} -->
+<p class="has-foreground-color has-text-color has-link-color has-small-font-size" style="text-transform:uppercase"><strong><a href="https://www.ayrtac.com/" target="_blank" rel="noreferrer noopener">Ayrtac.com</a></strong></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:safe-svg/svg-icon {"svgURL":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-ayrtac-grupo.svg","imageID":1001,"imageWidth":175,"imageHeight":49,"dimensionWidth":175,"dimensionHeight":49,"imageSizes":{"full":{"height":49,"width":175,"url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-ayrtac-grupo.svg","orientation":"portrait"},"medium":{"url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-ayrtac-grupo.svg","height":"512","width":"512","orientation":"landscape"},"thumbnail":{"url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/logo-ayrtac-grupo.svg","height":"256","width":"256","orientation":"landscape"}}} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","className":"mt-0"} /-->

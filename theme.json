@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
-	
+	"version": 3,
 	"settings": {
 		"appearanceTools": true,
 		"blocks": {
@@ -172,7 +172,7 @@
 			},
 			"layout": {
 				"block-gap": "2rem",
-				"block-gap-large": "40px",
+				"block-gap-large": "3.5rem",
 				"content": "1216px",
 				"padding": "16px",
 				"page": "var(--wp--custom--layout--content)",
@@ -219,8 +219,8 @@
 					"slug": "40"
 				},
 				{
-					"name": "Space 6 (4rem - 64px)",
-					"size": "4rem",
+					"name": "Space 6 (3.5rem - 56px)",
+					"size": "3.5rem",
 					"slug": "60"
 				},
 				{
@@ -456,6 +456,11 @@
 						}
 					}
 				}
+			},
+			"core/media-text": {
+				"spacing": {
+					"blockGap": "var(--wp--custom--layout--block-gap-large)"
+				}
 			}
 		},
 		"color": {
@@ -558,10 +563,6 @@
 			"lineHeight": "var(--wp--custom--line-height--normal)"
 		}
 	},
-
-	
-	"version": 3,
-	
 	"patterns" : [
 		"ayrtac/hero-sector"
 	],

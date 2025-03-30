@@ -50,6 +50,7 @@ Use it to make something cool, have fun, and share what you've learned.
 @use "components/group";
 @use "components/lists";
 @use "components/marquee";
+@use "components/media-text";
 @use "components/nav";
 @use "components/pagination";
 @use "components/popover";
@@ -65,3 +66,10 @@ Use it to make something cool, have fun, and share what you've learned.
 @use "patterns/homepage";
 @use "patterns/blog";
 @use "patterns/footer";
+
+/*--------------------------------------------------------------
+# WooCommerce
+--------------------------------------------------------------*/
+@use "woocommerce/main";
+@use "woocommerce/checkout";
+@use "woocommerce/cart";

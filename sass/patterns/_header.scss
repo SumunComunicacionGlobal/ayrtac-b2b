@@ -1,7 +1,29 @@
 @use '../abstracts/mixins' as *;
 
-.masthead {
+#masthead {
     position: fixed;
     z-index: 9;
     width: 100%;
+    transition: padding 0.3s ease-in-out;
 }
+
+.page-template-wp-custom-template-sector:not(.scrolled) #masthead,
+.archive.tax-product_cat:not(.scrolled) #masthead {
+    border-bottom: 1px solid #fff !important;
+
+    .wp-block-site-logo,
+    .wp-block-navigation__submenu-icon,
+    ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content{
+        filter: invert(1) grayscale(100) contrast(100);
+    } 
+}
+
+.scrolled #masthead {
+    background-color: var(--wp--preset--color--background);
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+}
+
+
