@@ -21,7 +21,8 @@ add_shortcode('current_term_field', function($atts) {
     }
 
     $field = get_field_object($atts['field'], $term);
-    if ($field && $field['type'] === 'file') {
+
+    if ($field && $field['type'] === 'image') {
         $file_id = get_field($atts['field'], $term);
         if ($file_id) {
             return wp_get_attachment_image($file_id, 'full');
