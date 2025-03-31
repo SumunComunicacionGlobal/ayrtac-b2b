@@ -18,11 +18,11 @@
 
 <!-- wp:buttons {"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"metadata":{"name":"Ver catálogo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"is-style-with-arrow"} -->
-<div class="wp-block-button is-style-with-arrow"><a class="wp-block-button__link wp-element-button" href="http://localhost:8888/ayrtac-b2b/catalogo/aceite/">Ver catálogo</a></div>
+<div class="wp-block-button is-style-with-arrow"><a class="wp-block-button__link wp-element-button" href="https://ayrtac.sumun.dev/catalogo/aceite/">Ver catálogo</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"metadata":{"name":"Descargar catálogo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"is-style-with-arrow"} -->
-<div class="wp-block-button is-style-with-arrow"><a class="wp-block-button__link wp-element-button" href="http://localhost:8888/ayrtac-b2b/wp-content/uploads/ayrtac-catalogo-aceites.pdf">Descargar catálogo</a></div>
+<div class="wp-block-button is-style-with-arrow"><a class="wp-block-button__link wp-element-button" href="https://ayrtac.sumun.dev/wp-content/uploads/ayrtac-catalogo-aceites.pdf">Descargar catálogo</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
@@ -35,5 +35,5 @@
 <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:safe-svg/svg-icon {"svgURL":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg","alignment":"right","imageID":875,"imageWidth":176,"imageHeight":175,"dimensionWidth":176,"dimensionHeight":175,"imageSizes":{"full":{"file":"sello-aceite.svg","width":176,"height":175,"mime_type":"image/svg+xml","source_url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg"},"medium":{"width":"512","height":"512","crop":false,"file":"sello-aceite.svg","mime_type":"image/svg+xml","source_url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg"},"thumbnail":{"width":"256","height":"256","crop":"1","file":"sello-aceite.svg","mime_type":"image/svg+xml","source_url":"http://localhost:8888/ayrtac-b2b/wp-content/uploads/sello-aceite.svg"}}} /--></div></div>
+<!-- wp:safe-svg/svg-icon {"svgURL":"https://ayrtac.sumun.dev/wp-content/uploads/sello-aceite.svg","alignment":"right","imageID":875,"imageWidth":176,"imageHeight":175,"dimensionWidth":176,"dimensionHeight":175,"imageSizes":{"full":{"file":"sello-aceite.svg","width":176,"height":175,"mime_type":"image/svg+xml","source_url":"https://ayrtac.sumun.dev/wp-content/uploads/sello-aceite.svg"},"medium":{"width":"512","height":"512","crop":false,"file":"sello-aceite.svg","mime_type":"image/svg+xml","source_url":"https://ayrtac.sumun.dev/wp-content/uploads/sello-aceite.svg"},"thumbnail":{"width":"256","height":"256","crop":"1","file":"sello-aceite.svg","mime_type":"image/svg+xml","source_url":"https://ayrtac.sumun.dev/wp-content/uploads/sello-aceite.svg"}}} /--></div></div>
 <!-- /wp:cover -->
