@@ -87,3 +87,21 @@
     }
 }
 
+.variations-table {
+    font-size: small;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: unset;
+
+    th, 
+    td {
+        text-align: center;
+        padding: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .is-numeric {
+        text-align: right;
+    }
+
+}
