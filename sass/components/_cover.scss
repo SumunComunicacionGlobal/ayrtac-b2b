@@ -1,5 +1,9 @@
 .wp-block-cover {
-    background-color: var(--wp--preset--color--primary-100);
+
+    &#hero {
+        background-color: var(--wp--preset--color--primary-100);
+    }
+    
     &.is-style-cover-contain-background { 
         .wp-block-cover__image-background {
             object-fit: contain;
