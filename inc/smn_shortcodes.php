@@ -31,3 +31,136 @@ add_shortcode('current_term_field', function($atts) {
 
     return get_field($atts['field'], $term);
 });
+
+// New shortcode to return post title, term name, or false
+add_shortcode('post_title', function() {
+    if (is_singular()) {
+        return get_the_title();
+    } elseif (is_tax() || is_category() || is_tag()) {
+        $term = get_queried_object();
+        if ($term && isset($term->name)) {
+            return $term->name;
+        }
+    }
+    return false;
+});
+
+// Shortcode to display variation swatches for the 'pa_color' attribute
+add_shortcode('loop_colores_producto', function() {
+
+    global $product;
+    
+    if (!$product) {
+        return '';
+    }
+
+    $colors = wp_get_post_terms($product->get_id(), 'pa_color', array('fields' => 'ids'));
+
+    if (empty($colors)) {
+        return '';
+    }
+
+    $output = '<div class="loop-product-colors">';
+    foreach ($colors as $color) {
+        $term = get_term($color);
+        $swatch_id = get_term_meta($color, 'product_attribute_image', true);
+        if ($swatch_id) {
+            $output .= '<span class="loop-color-swatch" title="' . esc_attr($term->name) . '">' . wp_get_attachment_image( $swatch_id, 'thumbnail' ) . '</span>';
+        }
+    }
+    $output .= '</div>';
+
+    return $output;
+});
+
+// Shortcode to display a row with capacity, dimensions, and weight
+add_shortcode('loop_atributos_producto', function() {
+    global $product;
+    
+    if (!$product) {
+        return '';
+    }
+
+    $output = '<div class="wp-block-group loop-product-attributes is-content-justification-space-between is-nowrap is-layout-flex">';
+
+        $capacity = $product->get_attribute('pa_capacidad');
+        $capacity = explode(', ', $capacity);
+        sort($capacity, SORT_NUMERIC);
+        if ( count( $capacity) > 1 && ( min($capacity) != max($capacity) ) ) $capacity = [min($capacity) . '-' . max($capacity)];
+        $capacity = implode('-', $capacity);
+
+
+        if ( $product->is_type('variable') ) {
+            $heights = [];
+            $widths = [];
+            $weight = [];
+            $lengths = [];
+
+            $variations = $product->get_available_variations();
+            foreach ($variations as $variation) {
+                $variation_id = $variation['variation_id'];
+                $variation_product = wc_get_product($variation_id);
+
+                if ($variation_product) {
+                    $variation_dimensions = $variation_product->get_dimensions(false);
+                    $variation_weight = $variation_product->get_weight();
+
+                    if (!empty($variation_dimensions['height'])) {
+                        $heights[] = $variation_dimensions['height'];
+                    }
+                    if (!empty($variation_dimensions['width'])) {
+                        $widths[] = $variation_dimensions['width'];
+                    }
+                    if (!empty($variation_dimensions['length'])) {
+                        $lengths[] = $variation_dimensions['length'];
+                    }
+                    if ($variation_weight) {
+                        $weight[] = $variation_weight;
+                    }
+                }
+            }
+
+            $heights = array_unique(array_map('floatval', $heights), SORT_NUMERIC);
+            $widths = array_unique(array_map('floatval', $widths), SORT_NUMERIC);
+            $lengths = array_unique(array_map('floatval', $lengths), SORT_NUMERIC);
+            $weight = array_unique(array_map('floatval', $weight), SORT_NUMERIC);
+
+            if ( count( $heights) > 1 && ( min($heights) != max($heights) ) ) $heights = [min($heights) . '-' . max($heights)]; 
+            if ( count( $widths) > 1 && ( min($widths) != max($widths) ) ) $widths = [min($widths) . '-' . max($widths)];
+            if ( count( $lengths) > 1 && ( min($lengths) != max($lengths) ) ) $lengths = [min($lengths) . '-' . max($lengths)];
+            if ( count( $weight) > 1 && ( min($weight) != max($weight) ) ) $weight = [min($weight) . '-' . max($weight)];
+
+            $heights = implode('-', $heights);
+            $widths = implode('-', $widths);
+            $lengths = implode('-', $lengths);
+            $weight = implode('-', $weight);
+
+        } else {
+
+            $dimensions = $product->get_dimensions(false);
+            $heights = !empty($dimensions['height']) ? $dimensions['height'] : '';
+            $widths = !empty($dimensions['width']) ? $dimensions['width'] : '';
+            $lengths = !empty($dimensions['length']) ? $dimensions['length'] : '';
+            $weight = $product->get_weight();
+        }
+
+        if ($capacity) {
+            $output .= '<div class="loop-attribute-item"><span class="icon-capacity"></span> ' . esc_html($capacity) . '&nbsp;ml</div>';
+        }
+        if ($heights) {
+            $output .= '<div class="loop-attribute-item"><span class="icon-height"></span> ' . esc_html($heights) . '&nbsp;' . get_option('woocommerce_dimension_unit') . '</div>';
+        }
+        if ($widths) {
+            $output .= '<div class="loop-attribute-item"><span class="icon-width"></span> ' . esc_html($widths) . '&nbsp;' . get_option('woocommerce_dimension_unit') . '</div>';
+        }
+        if ($lengths) {
+            $output .= '<div class="loop-attribute-item"><span class="icon-width"></span> ' . esc_html($lengths) . '&nbsp;' . get_option('woocommerce_dimension_unit') . '</div>';
+        }
+        if ($weight) {
+            $output .= '<div class="loop-attribute-item"><span class="icon-weight"></span> ' . esc_html($weight) . '&nbsp;' . get_option('woocommerce_weight_unit') . '</div>';
+        }
+        
+    $output .= '</div>';
+
+    return $output;
+});

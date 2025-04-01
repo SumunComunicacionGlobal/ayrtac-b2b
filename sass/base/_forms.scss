@@ -1,3 +1,32 @@
+@use '../abstracts/mixins' as *;
+
 .wpcf7-acceptance .wpcf7-list-item {
 	margin: 0;
+}
+
+label {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.wpcf7 {
+	
+	.is-layout-flex {
+	
+		> * {
+			flex: 1 1 100%;
+			
+			@media ($above-mobile) {
+				flex: 1 1 calc( 50% - var(--wp--custom--layout--block-gap)*.5 );
+			}
+		}
+
+	}
+
+	.is-layout-grid {
+		row-gap: calc(var(--wp--custom--layout--block-gap)*.5);
+
+		@media ($above-mobile) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
 }

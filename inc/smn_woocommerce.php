@@ -7,9 +7,20 @@ function activate_gutenberg_product( $can_edit, $post_type ) {
     }
     return $can_edit;
 }
-
 add_filter( 'use_block_editor_for_post_type', 'activate_gutenberg_product', 10, 2 );
 
+add_filter( 'loop_shop_per_page', 'smn_redefine_products_per_page', 9999 );
+function smn_redefine_products_per_page( $per_page ) {
+   $per_page = 24;
+   return $per_page;
+}
+
+// Replace WC breadcrumbs with rank math breadcrumbs
+function woocommerce_breadcrumb() {
+    if (function_exists('rank_math_the_breadcrumbs')) {
+        rank_math_the_breadcrumbs();
+    }
+}
 
 // enable taxonomy fields for woocommerce with gutenberg on
 function enable_taxonomy_rest( $args ) {
@@ -62,6 +73,117 @@ function hide_woocommerce_prices($price, $product) {
 // Hide clear button in variations form
 add_filter('woocommerce_reset_variations_link', '__return_empty_string');
 
+add_action( 'woocommerce_before_single_variation', 'smn_echo_variation_info' );
+function smn_echo_variation_info() {
+   global $product;
+   if ( $product->is_type( 'variable' ) ) {
+
+    echo '<div class="var_info"></div>';
+    wc_enqueue_js( "
+        $(document).on('found_variation', 'form.cart', function( event, variation ) { 
+                $('.var_info').empty();
+                const before = '<div class=\"var_info__item';
+                const after = '</div>';
+                var variation_description = variation.variation_description;
+                variation_description = variation_description.replace(/<\/?[^>]+(>|$)/g, \"\");
+                $('.var_info').append(before + ' pa_weight' + '\">' + variation.weight_html + after );
+                $('.var_info').append(before + ' pa_dimensions' + '\">' + variation.dimensions_html + after);
+                $('.title-variation-description').html(variation_description);
+                $('input[name=\"your-subject\"]').val(variation_description);
+        });
+    " );
+
+   }
+}
+
+add_action('woocommerce_single_product_summary', function() {
+    global $product;
+    if ( ! $product->is_type( 'simple' ) ) {
+        return;
+    }
+    
+    do_action( 'woocommerce_product_additional_information', $product );
+
+}, 21);
+
+add_filter('woocommerce_product_get_attribute', function($value, $instance, $attribute_name) {
+    if ($attribute_name === 'pa_capacidad') {
+        $value .= '&nbsp;ml';
+    }
+    return $value;
+}, 10, 3);
+
+add_filter( 'woocommerce_display_product_attributes', 'smn_add_capacidad_ml', 10, 2 );
+function smn_add_capacidad_ml( $product_attributes, $product ) {
+    if ( ! is_product() ) {
+        return $product_attributes;
+    }
+
+    if ( isset( $product_attributes['attribute_pa_capacidad'] ) ) :
+        $unidades = '&nbsp;ml';
+        if ( str_contains( $product_attributes['attribute_pa_capacidad']['value'], '</a>' ) ) {
+            $product_attributes['attribute_pa_capacidad']['value'] = str_replace( '</a></p>', $unidades . '</a></p>', $product_attributes['attribute_pa_capacidad']['value'] );
+        } else {
+            $product_attributes['attribute_pa_capacidad']['value'] = str_replace( '</p>', $unidades . '</p>', $product_attributes['attribute_pa_capacidad']['value'] );
+        }
+    endif;
+
+    if ( isset( $product_attributes['attribute_pa_color'] ) ) :
+        $product_attributes['attribute_pa_color']['value'] = do_shortcode('[loop_colores_producto]');
+    endif;
+
+    return $product_attributes;
+}
+
+
+
+add_filter('render_block', function($block_content, $block) {
+
+    if ( ! is_product() ) {
+        return $block_content;
+    }
+
+    global $product;
+    if ( ! $product->is_type( 'variable' ) ) {
+        return $block_content;
+    }
+
+    if ($block['blockName'] === 'core/post-title') {
+        if ( isset($block['attrs']['level']) && $block['attrs']['level'] === 1 ) {
+            $block_content .= '<div class="title-variation-description"></div>';
+        }
+    }
+    return $block_content;
+}, 10, 2);
+
+add_filter('render_block', function($block_content, $block) {
+
+    if ( 
+        $block['blockName'] === 'core/post-excerpt' && 
+        isset( $block['attrs']['__woocommerceNamespace']) && 
+        $block['attrs']['__woocommerceNamespace'] == 'woocommerce/product-collection/product-summary' 
+    ) {
+        $block_content = do_shortcode('[loop_atributos_producto]');
+    }
+
+    if (
+        $block['blockName'] === 'core/post-title' && 
+        isset( $block['attrs']['__woocommerceNamespace']) && 
+        $block['attrs']['__woocommerceNamespace'] == 'woocommerce/product-collection/product-title' 
+    ) {
+        $block_content .= do_shortcode('[loop_colores_producto]');
+    }
+
+    return $block_content;
+}, 10, 2);
+
+add_filter( 'render_block', 'smn_change_categories_dropdown_title', 10, 2 );
+function smn_change_categories_dropdown_title( $block_content, $block ) {
+    if ( $block['blockName'] === 'woocommerce/product-categories' ) {
+        $block_content = str_replace( esc_html__( 'Select a category', 'woocommerce' ), __( 'Ver otros catálogos', 'smn' ), $block_content );
+    }
+    return $block_content;
+}
 
 
 /*
@@ -125,7 +247,7 @@ function hide_single_variation_table_row_js() {
 
 */
 
-add_action('woocommerce_single_product_summary', 'display_product_variations_table', 15);
+/* add_action('woocommerce_single_product_summary', 'display_product_variations_table', 15);
 function display_product_variations_table() {
     global $product;
 
@@ -303,10 +425,4 @@ function display_product_variations_table() {
         echo '</table>';
     }
 }
-
-// Add inline styles for variations-table
-add_action('wp_head', 'add_custom_styles');
-function add_custom_styles() {
-    echo '<style>
-    </style>';
-}
+*/

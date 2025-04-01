@@ -81,7 +81,7 @@ require get_template_directory() . '/inc/smn_woocommerce.php';
 
 
 /* Quitar <p> y <br/> de Contact Form 7 */
-add_filter('wpcf7_autop_or_not', '__return_false');
+// add_filter('wpcf7_autop_or_not', '__return_false');
 
 
 /**

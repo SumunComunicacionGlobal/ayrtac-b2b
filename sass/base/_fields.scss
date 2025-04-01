@@ -14,10 +14,10 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	border-radius: 0;
+	border-radius: var(--wp--custom--border-radius--sm);
 	border: 0;
 	color: var(--wp--preset--color--foreground);
-	background-color: var(--wp--preset--color--background);
+	background-color: var(--wp--preset--color--neutral-white);
 	line-height: 1;
 	padding: 12px var(--wp--preset--spacing--10);
 	width: 100%;
@@ -28,13 +28,13 @@ textarea {
 	}
 
 	&::placeholder {
-		color: inherit;
+		color: var(--wp--preset--color--neutral-60);
 		opacity: 1; /* Firefox */
 		font-style: italic;
 	}
 	  
 	&::-ms-input-placeholder { /* Edge 12 -18 */
-		color: inherit;
+		color: var(--wp--preset--color--neutral-60);
 	}
 
 }
