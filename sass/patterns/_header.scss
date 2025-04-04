@@ -14,7 +14,9 @@
     .wp-block-site-logo,
     .wp-block-navigation__submenu-icon,
     ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content,
-    .max-mega-menu > li > a {
+    .max-mega-menu > li > a,
+    .mega-toggle-block,
+    .wp-block-navigation__responsive-container-open {
         filter: invert(1) grayscale(100) contrast(100);
     } 
 }
