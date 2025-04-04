@@ -5,7 +5,7 @@
     @media($above-mobile) {
 
         > .mega-sub-menu > .mega-menu-item:first-child {
-            margin-top: 2rem !important;
+            margin-top: 3rem !important;
         }
 
     }
@@ -14,6 +14,12 @@
 
 #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 img {
     height: auto;
+}
+
+.megamenu-consulta-expertos {
+    aspect-ratio: 3/2;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media ($above-mobile) {
