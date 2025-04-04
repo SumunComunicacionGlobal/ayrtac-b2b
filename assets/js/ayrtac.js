@@ -40,4 +40,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
   
-  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Registrar el plugin ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animar elementos con la clase .animate al entrar en el viewport
+    gsap.utils.toArray('.wp-block-cover__inner-container, .wp-block-media-text__content, .is-layout-grid > * > *').forEach(function (element) {
+        gsap.from(element, {
+            scrollTrigger: {
+                trigger: element, // Elemento que activa la animación
+                start: 'top 80%', // Inicia cuando el top del elemento está al 80% del viewport
+                end: 'bottom 20%', // Termina cuando el bottom del elemento está al 20% del viewport
+                toggleActions: 'play none none none', // Reproducir solo una vez
+            },
+            opacity: 0,
+            y: 50,
+            duration: 0.3,
+        });
+    });
+
+    // Animar cada elemento .wc-block-product individualmente con un desfase
+    gsap.utils.toArray('.wc-block-product, .wp-block-button').forEach(function (product, index) {
+        gsap.from(product, {
+            scrollTrigger: {
+                trigger: product, // Cada elemento tiene su propio trigger
+                start: 'top 80%', // Inicia cuando el top del elemento está al 80% del viewport
+                toggleActions: 'play none none none', // Reproducir solo una vez
+            },
+            opacity: 0,
+            y: 50,
+            duration: 0.3,
+            delay: index % 3 * 0.1, // Desfase de 100ms para cada fila de 3 elementos
+        });
+    });
+});

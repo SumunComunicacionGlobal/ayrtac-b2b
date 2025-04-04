@@ -8,6 +8,12 @@
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'ayrtac-js', get_template_directory_uri() . '/assets/js/ayrtac.js', array(), true );
 	
+    // Cargar GSAP desde el CDN
+    wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', array(), null, true );
+
+    // Cargar ScrollTrigger desde el CDN
+    wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', array('gsap'), null, true );
+
 	if ( has_block( 'cb/carousel' ) ) {
         wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/slick/slick.min.css' );
         wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array('jquery'), null, true );
