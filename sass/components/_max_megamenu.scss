@@ -2,8 +2,24 @@
 
 .mega-menu-tabbed {
 
-    > .mega-sub-menu > .mega-menu-item:first-child {
-        margin-top: 2rem !important;
+    @media($above-mobile) {
+
+        > .mega-sub-menu > .mega-menu-item:first-child {
+            margin-top: 2rem !important;
+        }
+
     }
 
 }
+
+#mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 img {
+    height: auto;
+}
+
+@media ($above-mobile) {
+
+    #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 > li.mega-menu-tabbed > ul.mega-sub-menu > li.mega-menu-item.mega-menu-item-has-children > a.mega-menu-link > .mega-indicator:after {
+        content: url('./assets/icons/icon-arrow-btn.svg');
+    }
+
+} 

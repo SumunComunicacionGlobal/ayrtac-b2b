@@ -176,7 +176,7 @@ add_shortcode('imagen_megamenu', function($atts) {
         return '';
     }
 
-    $featured_image = get_the_post_thumbnail($post_id, 'medium');
+    $featured_image = get_the_post_thumbnail($post_id, 'medium_larga');
     if (!$featured_image) {
         return '';
     }
