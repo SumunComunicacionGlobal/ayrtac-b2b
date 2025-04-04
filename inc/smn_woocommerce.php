@@ -73,6 +73,10 @@ function hide_woocommerce_prices($price, $product) {
 // Hide clear button in variations form
 add_filter('woocommerce_reset_variations_link', '__return_empty_string');
 
+add_action('woocommerce_before_variations_form', function() {
+    echo '<p class="before-variations-text info-tip">' . __('Juega con las combinaciones disponibles para ver sus dimensiones:', 'smn') . '</p>';
+});
+
 add_action( 'woocommerce_before_single_variation', 'smn_echo_variation_info' );
 function smn_echo_variation_info() {
    global $product;
@@ -184,6 +188,34 @@ function smn_change_categories_dropdown_title( $block_content, $block ) {
     }
     return $block_content;
 }
+
+add_filter('render_block', function($block_content, $block) {
+
+
+    if (
+        is_tax('product_cat') && 
+        $block['blockName'] === 'core/cover' && 
+        isset($block['attrs']['metadata']['patternName']) && 
+        $block['attrs']['metadata']['patternName'] === 'ayrtac/hero-sector'
+    ) {
+
+        $term = get_queried_object();
+        if ($term && isset($term->term_id)) {
+            $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+            if ($thumbnail_id) {
+                // $image_url = wp_get_attachment_url($thumbnail_id);
+                // if ($image_url) {
+                //     $block['attrs']['url'] = $image_url;
+                //     $block_content = render_block($block);
+                // }
+                $img = wp_get_attachment_image( $thumbnail_id, 'full', false, ['class' => 'wp-block-cover__image-background'] );
+                $block_content = str_replace( 'id="hero">', 'id="hero">' . $img, $block_content );
+            }
+        }
+
+    }
+    return $block_content;
+}, 10, 2);
 
 
 /*

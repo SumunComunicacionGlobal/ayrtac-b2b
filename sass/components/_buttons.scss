@@ -50,3 +50,16 @@
 	background: transparent;
 	border-bottom: 1px solid currentColor;
 }
+
+.info-tip {
+	display: flex;
+	align-items: flex-start;
+
+	&::before {
+		content: url('./assets/icons/icon-info.svg');
+		display: block;
+		width: .75em;
+		height: .75em;
+		margin-right: 0.5rem;
+	}
+} 
