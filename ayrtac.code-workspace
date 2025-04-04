@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../plugins/woocommerce"
+		},
+		{
+			"path": "../../plugins/woo-variation-swatches"
+		}
+	],
+	"settings": {}
+}
