@@ -154,13 +154,13 @@
     }
 
 }
-.woocommerce table.variations tbody {
+// .woocommerce table.variations tbody {
 
-    > tr:nth-child(even) {
-        display: none;
-    }
+//     > tr:nth-child(even) {
+//         display: none;
+//     }
 
-}
+// }
 
 .var_info {
 
@@ -238,6 +238,7 @@
         width: var(--wp--preset--font-size--heading-5) !important;
         height: var(--wp--preset--font-size--heading-5) !important;
         object-fit: contain;
+        border: 1px solid var(--wp--preset--color--neutral-40);
     }
 } 
 .woocommerce-variation-description {
