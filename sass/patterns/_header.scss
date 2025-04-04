@@ -13,7 +13,8 @@
 
     .wp-block-site-logo,
     .wp-block-navigation__submenu-icon,
-    ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content{
+    ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content,
+    .max-mega-menu > li > a {
         filter: invert(1) grayscale(100) contrast(100);
     } 
 }
