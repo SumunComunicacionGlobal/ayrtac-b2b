@@ -39,12 +39,16 @@ main {
     @supports (animation-timeline: scroll()) {
   
         .move-up-block {
+            position: relative;
+            z-index: 1;
             animation: move-up-block ease-in-out both;
             animation-timeline: view();
             transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
         }
 
         .move-down-block {
+            position: relative;
+            z-index: 1;
             animation: move-down-block ease-in-out both;
             animation-timeline: view();
             transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
