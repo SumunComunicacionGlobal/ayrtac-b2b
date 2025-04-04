@@ -41,13 +41,15 @@
 
 .wc-block-product {
 
-    .wp-post-image {
+    .wp-post-image,
+    .attachment-woocommerce_thumbnail {
         transition: transform 0.3s ease;
     }
 
     &:hover {
 
-        .wp-post-image {
+        .wp-post-image,
+        .attachment-woocommerce_thumbnail {
             transform: translateY(-1rem);
         }
     }
