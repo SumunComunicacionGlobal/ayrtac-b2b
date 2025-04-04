@@ -1,0 +1,9 @@
+@use '../abstracts/mixins' as *;
+
+.mega-menu-tabbed {
+
+    > .mega-sub-menu > .mega-menu-item:first-child {
+        margin-top: 2rem;
+    }
+
+}
