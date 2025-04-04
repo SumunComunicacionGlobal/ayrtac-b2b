@@ -164,3 +164,27 @@ add_shortcode('loop_atributos_producto', function() {
 
     return $output;
 });
+
+// Shortcode to display the featured image linked to the corresponding page
+add_shortcode('imagen_megamenu', function($atts) {
+    $atts = shortcode_atts(array(
+        'post_id' => 0,
+    ), $atts);
+
+    $post_id = intval($atts['post_id']);
+    if (!$post_id) {
+        return '';
+    }
+
+    $featured_image = get_the_post_thumbnail($post_id, 'medium');
+    if (!$featured_image) {
+        return '';
+    }
+
+    $post_url = get_permalink($post_id);
+    if (!$post_url) {
+        return '';
+    }
+
+    return '<a href="' . esc_url($post_url) . '">' . $featured_image . '</a>';
+});

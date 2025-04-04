@@ -32,6 +32,9 @@ add_filter( 'render_block', 'custom_add_category_video_to_cover_block', 10, 2 );
 // Muestra los campos personalizados clásicos cuando ACF está activo
 add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
 
+// Muestra el personalizador de apariencia
+add_action( 'customize_register', '__return_true' );
+
 add_action( 'wp_footer', function() {
 
     ?>
