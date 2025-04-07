@@ -208,8 +208,8 @@ function smn_contenido_adicional_producto( $atts ) {
         if ( $pdf_id ) {
             $pdf_url = wp_get_attachment_url( $pdf_id );
             echo '<div class="wp-block-buttons">';
-                echo '<div class="wp-block-button is-style-with-arrow">';
-                    echo '<a href="' . esc_url( $pdf_url ) . '" target="_blank" class="wp-block-button__link">';
+                echo '<div class="wp-block-button is-style-outline is-style-outline--2">';
+                    echo '<a href="' . esc_url( $pdf_url ) . '" target="_blank" class="wp-block-button__link has-primary-color has-text-color">';
                         echo __('Descargar ficha en PDF', 'smn' ); 
                     echo '</a>';
                 echo '</div>';

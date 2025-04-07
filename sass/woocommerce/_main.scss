@@ -326,3 +326,7 @@
         object-fit: cover;
     }
 }
+
+.contenido-adicional-producto > div {
+    margin-bottom: var(--wp--custom--layout--block-gap);
+}
