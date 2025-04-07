@@ -6,7 +6,7 @@
  function smn_scripts() {
 
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'ayrtac-js', get_template_directory_uri() . '/assets/js/ayrtac.js', array(), true );
+	wp_enqueue_script( 'ayrtac-js', get_template_directory_uri() . '/assets/js/ayrtac.js', array( 'megamenu' ), true );
 	
     // Cargar GSAP desde el CDN
     wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', array(), null, true );

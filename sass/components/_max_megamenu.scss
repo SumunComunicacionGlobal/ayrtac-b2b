@@ -22,6 +22,25 @@
     justify-content: space-between;
 }
 
+body.menu-open {
+
+     #masthead {
+        background-color: var(--wp--preset--color--neutral-white);
+     }
+
+    &:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+}
+
 @media ($above-mobile) {
 
     #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 > li.mega-menu-tabbed > ul.mega-sub-menu > li.mega-menu-item.mega-menu-item-has-children > a.mega-menu-link > .mega-indicator:after {

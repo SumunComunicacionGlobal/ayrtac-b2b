@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gsap.registerPlugin(ScrollTrigger);
 
     // Animar elementos con la clase .animate al entrar en el viewport
-    gsap.utils.toArray('.wp-block-cover__inner-container, .wp-block-media-text__content, .is-layout-grid > * > *').forEach(function (element) {
+    gsap.utils.toArray('.wp-block-cover__inner-container, .wp-block-media-text__content, .is-layout-grid > * > *, #colophon .safe-svg-cover').forEach(function (element) {
         gsap.from(element, {
             scrollTrigger: {
                 trigger: element, // Elemento que activa la animación
@@ -75,5 +75,17 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: 0.3,
             delay: index % 3 * 0.1, // Desfase de 100ms para cada fila de 3 elementos
         });
+    });
+});
+
+jQuery(function($) {
+    $('li.mega-menu-item').on('open_panel', function() {
+        $('body').addClass('menu-open');
+    });
+});
+
+jQuery(function($) {
+    $('li.mega-menu-item').on('close_panel', function() {
+        $('body').removeClass('menu-open');
     });
 });
