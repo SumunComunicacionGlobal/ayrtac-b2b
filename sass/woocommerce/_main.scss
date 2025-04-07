@@ -46,6 +46,7 @@
     .wp-post-image,
     .attachment-woocommerce_thumbnail {
         transition: transform 0.3s ease;
+        mix-blend-mode: multiply;
     }
 
     &:hover {
