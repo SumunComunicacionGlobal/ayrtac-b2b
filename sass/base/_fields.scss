@@ -47,6 +47,7 @@ select {
 
 textarea {
 	width: 100%;
+	max-height: unset;
 }
 
 button[type="submit"], input[type="submit"] {
