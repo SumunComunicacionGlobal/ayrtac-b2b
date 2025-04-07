@@ -100,15 +100,24 @@ function smn_echo_variation_info() {
    }
 }
 
-add_action('woocommerce_single_product_summary', function() {
-    global $product;
-    if ( ! $product->is_type( 'simple' ) ) {
-        return;
-    }
-    
-    do_action( 'woocommerce_product_additional_information', $product );
+// add_action('woocommerce_single_product_summary', function() {
 
-}, 21);
+//     global $product;
+//     if ( ! $product->is_type( 'simple' ) ) {
+//         return;
+//     }
+
+//     echo 'test1';
+//     global $wp_query;
+//     if ( current_user_can( 'manage_options' ) ) :
+//         echo '<pre>';
+//             print_r ( $wp_query );
+//         echo '</pre>';
+//     endif;
+
+//     do_action( 'woocommerce_product_additional_information', $product );
+
+// }, 21);
 
 add_filter('woocommerce_product_get_attribute', function($value, $instance, $attribute_name) {
     if ($attribute_name === 'pa_capacidad') {
@@ -162,12 +171,21 @@ add_filter('render_block', function($block_content, $block) {
 
 add_filter('render_block', function($block_content, $block) {
 
-    if ( 
-        $block['blockName'] === 'core/post-excerpt' && 
-        isset( $block['attrs']['__woocommerceNamespace']) && 
-        $block['attrs']['__woocommerceNamespace'] == 'woocommerce/product-collection/product-summary' 
-    ) {
-        $block_content = do_shortcode('[loop_atributos_producto]');
+    if ( $block['blockName'] === 'core/post-excerpt' ) {
+        if ( 
+            isset( $block['attrs']['__woocommerceNamespace']) && 
+            $block['attrs']['__woocommerceNamespace'] == 'woocommerce/product-collection/product-summary' 
+        ) {
+            $block_content = do_shortcode('[loop_atributos_producto]');
+        } else {
+            global $product;
+            if ( $product->is_type( 'variable' ) ) {
+                return $block_content;
+            }
+            ob_start();
+            do_action( 'woocommerce_product_additional_information', $product );
+            $block_content .= ob_get_clean();
+        }
     }
 
     if (
@@ -190,6 +208,50 @@ function smn_change_categories_dropdown_title( $block_content, $block ) {
 }
 
 add_filter('render_block', function($block_content, $block) {
+    // Verificar si estamos en una página de categoría de producto
+    if (!is_product_category() || $block['blockName'] !== 'woocommerce/product-collection') {
+        return $block_content;
+    }
+
+    $current_term = get_queried_object();
+    $additional_images = get_field( 'additional_images', $current_term );
+
+    if ( !$additional_images ) {
+        return $block_content;
+    }
+
+    $offset = 2; // Número de productos antes de insertar la imagen adicional
+    $gap = 7; // Número de productos entre cada imagen adicional
+
+    // Dividir el contenido en productos individuales
+    $products = explode('</li>', $block_content);
+
+    // Crear el contenido del <li> adicional
+    $additional_li_before = '<li class="imagen-adicional">';
+    $additional_li_after = '</li>';
+
+    // Insertar las imágenes adicionales en las posiciones definidas por el offset y el gap
+    $position = $offset;
+    $image_index = 0;
+
+    while (isset($products[$position]) && isset($additional_images[$image_index])) {
+        $products[$position] .= $additional_li_before;
+        $products[$position] .= wp_get_attachment_image($additional_images[$image_index], 'medium_large');
+        $products[$position] .= $additional_li_after;
+
+        $position += $gap;
+        $image_index++;
+    }
+
+
+
+    // Reconstruir el contenido del bloque
+    $block_content = implode('</li>', $products);
+
+    return $block_content;
+}, 10, 2);
+
+add_filter('render_block', function($block_content, $block) {
 
 
     if (
@@ -203,11 +265,6 @@ add_filter('render_block', function($block_content, $block) {
         if ($term && isset($term->term_id)) {
             $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
             if ($thumbnail_id) {
-                // $image_url = wp_get_attachment_url($thumbnail_id);
-                // if ($image_url) {
-                //     $block['attrs']['url'] = $image_url;
-                //     $block_content = render_block($block);
-                // }
                 $img = wp_get_attachment_image( $thumbnail_id, 'full', false, ['class' => 'wp-block-cover__image-background'] );
                 $block_content = str_replace( 'id="hero">', 'id="hero">' . $img, $block_content );
             }

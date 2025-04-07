@@ -2,6 +2,18 @@
 
     &#hero {
         background-color: var(--wp--preset--color--primary-100);
+        align-items: flex-start;
+
+        .wp-block-cover__inner-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            > * {
+                width: 100%;
+            }
+        }
     }
     
     &.is-style-cover-contain-background { 

@@ -28,6 +28,8 @@
 
     li.wc-block-product {
         border-right: 1px solid var(--wp--preset--color--neutral-60);
+        border-bottom: 1px solid var(--wp--preset--color--neutral-60);
+        margin-bottom: -1px;
 
         &:last-of-type {
             border-right: none;
@@ -313,4 +315,13 @@
         text-align: right;
     }
 
+}
+
+.imagen-adicional {
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
