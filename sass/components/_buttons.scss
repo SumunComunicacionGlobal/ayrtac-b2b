@@ -34,6 +34,8 @@
 
 .wp-block-button.is-style-outline .wp-block-button__link {
 	padding: calc(0.5rem - 2px) 2rem !important;
+	background: transparent;
+	border-width: initial;
 }
 
 .wp-block-button.is-style-outline-with-arrow .wp-block-button__link {
