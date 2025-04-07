@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Animar cada elemento .wc-block-product individualmente con un desfase
-    gsap.utils.toArray('.wc-block-product, .wp-block-button').forEach(function (product, index) {
+    gsap.utils.toArray('.wc-block-product, .wp-block-button, .wp-block-columns .wp-block-columns').forEach(function (product, index) {
         gsap.from(product, {
             scrollTrigger: {
                 trigger: product, // Cada elemento tiene su propio trigger

@@ -25,4 +25,9 @@
     img[src*=".svg"] {
         filter: brightness(0) invert(1);
     }
+
+}
+
+span.wp-block-cover__background.has-primary-80-background-color.has-background-dim-100 + .wp-block-cover__inner-container a {
+    color: var(--wp--preset--color--primary-30);
 }
