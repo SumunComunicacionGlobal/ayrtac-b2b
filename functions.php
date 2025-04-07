@@ -70,6 +70,9 @@ require get_template_directory() . '/inc/smn_nav.php';
 // Register blocks
 require get_template_directory() . '/inc/smn_register-blocks.php';
 
+// Register sidebars
+require get_template_directory() . '/inc/smn_widgets.php';
+
 // Shortcodes
 require get_template_directory() . '/inc/smn_shortcodes.php';
 
