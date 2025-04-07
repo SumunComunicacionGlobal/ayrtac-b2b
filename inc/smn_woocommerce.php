@@ -100,6 +100,7 @@ function smn_echo_variation_info() {
    }
 }
 
+
 // add_action('woocommerce_single_product_summary', function() {
 
 //     global $product;

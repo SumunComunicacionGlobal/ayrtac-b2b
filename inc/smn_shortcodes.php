@@ -188,3 +188,39 @@ add_shortcode('imagen_megamenu', function($atts) {
 
     return '<a href="' . esc_url($post_url) . '">' . $featured_image . '</a>';
 });
+
+add_shortcode( 'contenido_adicional_producto', 'smn_contenido_adicional_producto' );
+function smn_contenido_adicional_producto( $atts ) {
+    ob_start();
+    ?>
+    <div class="contenido-adicional-producto">
+        <?php
+        $croquis_id = get_field( 'product_sketch' );
+        if ( $croquis_id ) {
+            echo '<div class="product-sketch">';
+                echo wp_get_attachment_image( $croquis_id, 'medium_large' );
+            echo '</div>';
+        }
+        ?>
+        
+        <?php 
+        $pdf_id = get_field( 'product_pdf' );
+        if ( $pdf_id ) {
+            $pdf_url = wp_get_attachment_url( $pdf_id );
+            echo '<div class="wp-block-buttons">';
+                echo '<div class="wp-block-button is-style-with-arrow">';
+                    echo '<a href="' . esc_url( $pdf_url ) . '" target="_blank" class="wp-block-button__link">';
+                        echo __('Descargar ficha en PDF', 'smn' ); 
+                    echo '</a>';
+                echo '</div>';
+            echo '</div>';
+        }
+        ?>
+        
+        <?php if ( is_active_sidebar( 'cta-contacto-ficha-producto' ) ) {
+            dynamic_sidebar( 'cta-contacto-ficha-producto' );
+        } ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
