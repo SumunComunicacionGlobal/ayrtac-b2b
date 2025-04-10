@@ -343,6 +343,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: auto;
     overscroll-behavior: contain;
+
+    .wp-block-woocommerce-filter-wrapper .wp-block-heading {
+        border-top: 1px solid var(--wp--preset--color--neutral-40);
+        border-bottom: 1px solid var(--wp--preset--color--neutral-40);;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 body.filter-open {
