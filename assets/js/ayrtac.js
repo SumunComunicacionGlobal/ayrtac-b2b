@@ -106,9 +106,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Cerrar filtro al pulsar en el botón de cerrar .cerrar-filtro
+// Cerrar filtro al pulsar en el botón de cerrar #cerrar-filtro
 jQuery(function($) {
-    $('.cerrar-filtro').on('click', function() {
+    $('a[href="#cerrar-filtro"]').on('click', function(e) {
+        e.preventDefault();
         $('body').removeClass('filter-open');
     });
 });
