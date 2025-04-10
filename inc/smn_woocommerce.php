@@ -214,6 +214,11 @@ add_filter('render_block', function($block_content, $block) {
         return $block_content;
     }
 
+    // si la url tiene un parámetro que empiece por filter_, anular acción
+    if ( isset($_SERVER['QUERY_STRING']) && preg_match('/^filter_/', $_SERVER['QUERY_STRING']) ) {
+        return $block_content;
+    }
+
     $current_term = get_queried_object();
     $additional_images = get_field( 'additional_images', $current_term );
 

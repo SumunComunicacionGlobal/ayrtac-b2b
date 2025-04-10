@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Añade clases al body cuando interactuamos con el menú
 jQuery(function($) {
     $('li.mega-menu-item').on('open_panel', function() {
         $('body').addClass('menu-open');
@@ -87,5 +88,35 @@ jQuery(function($) {
 jQuery(function($) {
     $('li.mega-menu-item').on('close_panel', function() {
         $('body').removeClass('menu-open');
+    });
+});
+
+// Añade scroll suave al aplicar filtro
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasFilterParam = Array.from(urlParams.keys()).some(key => key.startsWith('filter_'));
+
+    if (hasFilterParam) {
+        const targetElement = document.querySelector('.wp-block-woocommerce-product-collection');
+        if (targetElement) {
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }, 300); // delay
+        }
+    }
+});
+
+// Cerrar filtro al pulsar en el botón de cerrar .cerrar-filtro
+jQuery(function($) {
+    $('.cerrar-filtro').on('click', function() {
+        $('body').removeClass('filter-open');
+    });
+});
+
+// Añade clase al body cuando se abre el filtro
+jQuery(function($) {
+    $('a[href="#abrir-filtro"]').on('click', function(e) {
+        e.preventDefault();
+        $('body').addClass('filter-open');
     });
 });

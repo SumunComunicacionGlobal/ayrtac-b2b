@@ -330,3 +330,24 @@
 .contenido-adicional-producto > div {
     margin-bottom: var(--wp--custom--layout--block-gap);
 }
+
+#filtro {
+    transition: left 0.3s ease-in-out;
+    width: 340px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -400px;
+    z-index: 99999999 !important;
+    background-color: var(--wp--preset--color--background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+body.filter-open {
+
+    #filtro {
+        left: 0;
+    }
+    
+}
