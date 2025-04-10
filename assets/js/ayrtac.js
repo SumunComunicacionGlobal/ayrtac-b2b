@@ -121,3 +121,12 @@ jQuery(function($) {
         $('body').addClass('filter-open');
     });
 });
+
+// Añadir comportamiento hover a los links del mega menú tabbed
+jQuery(function($) {
+    $('.mega-menu-tabbed > ul > li:not(.mega-toggle-on) > a').hover(
+        function() {
+            $(this).trigger('click');
+        }
+    );
+});
