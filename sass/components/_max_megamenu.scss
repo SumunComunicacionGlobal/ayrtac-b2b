@@ -22,7 +22,8 @@
     justify-content: space-between;
 }
 
-body.menu-open {
+body.menu-open,
+body.filter-open {
 
      #masthead {
         background-color: var(--wp--preset--color--neutral-white);

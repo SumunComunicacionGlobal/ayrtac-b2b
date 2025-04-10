@@ -342,6 +342,7 @@
     background-color: var(--wp--preset--color--background);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: auto;
+    overscroll-behavior: contain;
 }
 
 body.filter-open {
@@ -349,5 +350,5 @@ body.filter-open {
     #filtro {
         left: 0;
     }
-    
+
 }
