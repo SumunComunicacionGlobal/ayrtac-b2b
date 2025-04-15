@@ -236,10 +236,6 @@ add_shortcode('sidebar', function($atts) {
     }
 
     ob_start();
-    echo '<section class="wp-block-group cta-personaliza-ficha-producto alignfull">';
-        echo '<div class="wp-block-group__inner-container">';
-            dynamic_sidebar($atts['id']);
-        echo '</div>';
-    echo '</section>';
+    dynamic_sidebar($atts['id']);
     return ob_get_clean();
 });
