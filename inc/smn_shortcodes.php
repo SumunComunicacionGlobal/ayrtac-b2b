@@ -224,3 +224,18 @@ function smn_contenido_adicional_producto( $atts ) {
     <?php
     return ob_get_clean();
 }
+
+// Shortcode to display a sidebar by ID
+add_shortcode('sidebar', function($atts) {
+    $atts = shortcode_atts(array(
+        'id' => '',
+    ), $atts);
+
+    if (empty($atts['id']) || !is_active_sidebar($atts['id'])) {
+        return '';
+    }
+
+    ob_start();
+    dynamic_sidebar($atts['id']);
+    return ob_get_clean();
+});
