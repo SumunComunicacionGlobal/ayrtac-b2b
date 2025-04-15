@@ -57,3 +57,10 @@ function acf_location_rule_values_Post( $choices ) {
     //print_r($choices);
     return $choices;
 }
+
+if ( $_SERVER['HTTP_HOST'] === 'localhost' ) {
+    add_filter( 'body_class', function( $classes ) {
+        $classes[] = 'filter-open';
+        return $classes;
+    });
+}

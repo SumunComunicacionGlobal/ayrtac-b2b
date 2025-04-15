@@ -112,6 +112,12 @@ jQuery(function($) {
         e.preventDefault();
         $('body').removeClass('filter-open');
     });
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('#filtro, a[href="#abrir-filtro"]').length) {
+            $('body').removeClass('filter-open');
+        }
+    });
 });
 
 // Añade clase al body cuando se abre el filtro

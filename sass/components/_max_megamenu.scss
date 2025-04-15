@@ -22,22 +22,30 @@
     justify-content: space-between;
 }
 
-body.menu-open,
-body.filter-open {
-
-     #masthead {
-        background-color: var(--wp--preset--color--neutral-white);
-     }
+body { 
 
     &:before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &.menu-open,
+    &.filter-open {
+
+        #masthead {
+            background-color: var(--wp--preset--color--neutral-white);
+        }
+
+        &:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
     }
 
 }

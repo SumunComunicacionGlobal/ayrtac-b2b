@@ -280,6 +280,38 @@ add_filter('render_block', function($block_content, $block) {
     return $block_content;
 }, 10, 2);
 
+// Add ml to the attribute terms in the REST API response
+add_filter('rest_prepare_pa_capacidad', function($response, $attribute, $request) {
+    if ( current_user_can( 'manage_options' ) ) :
+        echo '<pre>test1';
+            print_r ( $attribute );
+        echo '</pre>';
+    endif;
+    // Verificar si el atributo es "capacidad"
+    if ($attribute->slug === 'pa_capacidad') {
+        // Obtener los términos del atributo
+        $terms = get_terms([
+            'taxonomy' => 'pa_capacidad',
+            'hide_empty' => false,
+        ]);
+
+        // Ordenar los términos por valor numérico
+        usort($terms, function($a, $b) {
+            return intval($a->name) - intval($b->name);
+        });
+
+        // Modificar los nombres de los términos para añadir " ml"
+        foreach ($terms as $term) {
+            $term->name .= ' ml';
+        }
+
+        // Reemplazar los términos en la respuesta
+        $response->data['terms'] = $terms;
+    }
+
+    return $response;
+}, 10, 3);
+
 
 /*
 
@@ -521,3 +553,4 @@ function display_product_variations_table() {
     }
 }
 */
+
