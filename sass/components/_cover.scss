@@ -1,5 +1,18 @@
 .wp-block-cover {
+    
+    &.is-style-cover-contain-background { 
+        .wp-block-cover__image-background {
+            object-fit: contain;
+        }
+    }
 
+    img[src*=".svg"] {
+        filter: brightness(0) invert(1);
+    }
+
+}
+
+body:not(.home) .wp-block-cover {
     &#hero {
         background-color: var(--wp--preset--color--primary-100);
         align-items: flex-start;
@@ -15,19 +28,9 @@
             }
         }
     }
-    
-    &.is-style-cover-contain-background { 
-        .wp-block-cover__image-background {
-            object-fit: contain;
-        }
-    }
-
-    img[src*=".svg"] {
-        filter: brightness(0) invert(1);
-    }
-
 }
 
 span.wp-block-cover__background.has-primary-80-background-color.has-background-dim-100 + .wp-block-cover__inner-container a {
     color: var(--wp--preset--color--primary-30);
 }
+
