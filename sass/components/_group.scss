@@ -43,5 +43,15 @@
 }
 
 .wp-block-group.is-position-sticky {
-    top: 8rem;
+    top: 6.33rem;
+
+    @media ($below-mobile) {
+        top: 4rem;
+
+        &.filter-bar {
+            a.wp-block-button__link{
+                padding: 0 !important;
+            }
+        }
+    }
 }

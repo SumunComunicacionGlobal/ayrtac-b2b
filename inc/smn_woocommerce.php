@@ -74,7 +74,7 @@ function hide_woocommerce_prices($price, $product) {
 add_filter('woocommerce_reset_variations_link', '__return_empty_string');
 
 add_action('woocommerce_before_variations_form', function() {
-    echo '<p class="before-variations-text info-tip">' . __('Juega con las combinaciones disponibles para ver sus dimensiones:', 'smn') . '</p>';
+    echo '<p class="before-variations-text info-tip mb-2">' . __('Juega con las combinaciones disponibles para ver sus dimensiones:', 'smn') . '</p>';
 });
 
 add_action( 'woocommerce_before_single_variation', 'smn_echo_variation_info' );

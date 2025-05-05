@@ -319,7 +319,7 @@
 				},
 				{
 					"name": "H1",
-					"size": "clamp(2.5rem, 4.8vw, 3rem)",
+					"size": "clamp(2.33rem, 4.8vw, 3rem)",
 					"slug": "heading-1"
 				},
 				{

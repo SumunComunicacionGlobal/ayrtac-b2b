@@ -41,6 +41,11 @@ a.stretched-link, .stretched-link > a {
     margin-block-end: var(--wp--preset--spacing--10);
 }
 
+.mb-2 {
+    margin-block-end: var(--wp--preset--spacing--20);
+    margin-bottom: var(--wp--preset--spacing--20);
+}
+
 .d-z-index-2 {
     z-index: 2;
     position: relative;

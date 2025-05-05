@@ -84,8 +84,9 @@
     
     tr td, 
     tr th {
-        // padding-bottom: .5rem !important;
-        // padding-right: 2rem !important;
+        @media ($below-mobile) {
+            padding-bottom: 0 !important;
+        }
     }
 
     tr th label,

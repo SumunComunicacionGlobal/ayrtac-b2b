@@ -18,6 +18,7 @@ main {
 @keyframes move-up-block {
 	0% {
 		transform: translateY(-11rem);
+
 	}
 
 	100% {
@@ -69,6 +70,13 @@ main {
                 var(--wp--preset--color--primary);
             }
         }
+    }
+}
+
+.move-up-block {
+    @media ($below-mobile) {
+        transform: translateY(-5rem);
+        transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
     }
 }
 

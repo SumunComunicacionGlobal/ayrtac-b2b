@@ -642,6 +642,11 @@ a.stretched-link::after, .stretched-link > a::after {
   margin-block-end: var(--wp--preset--spacing--10);
 }
 
+.mb-2 {
+  margin-block-end: var(--wp--preset--spacing--20);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
 .d-z-index-2 {
   z-index: 2;
   position: relative;
@@ -920,7 +925,18 @@ details[open] span::before {
 }
 
 .wp-block-group.is-position-sticky {
-  top: 8rem;
+  top: 6.33rem;
+}
+
+@media (max-width:781px) {
+
+  .wp-block-group.is-position-sticky {
+    top: 4rem;
+  }
+
+  .wp-block-group.is-position-sticky.filter-bar a.wp-block-button__link {
+    padding: 0 !important;
+  }
 }
 
 ol.has-background, ul.has-background {
@@ -1301,27 +1317,32 @@ ul.mega-sub-menu {
   transition: padding 0.3s ease-in-out;
 }
 
+.page-template-wp-custom-template-sector:not(.scrolled) #masthead,
+.archive.tax-product_cat:not(.scrolled) #masthead {
+  border-bottom: 1px solid #fff !important;
+}
+
 @media (min-width:782px) {
 
-  .page-template-wp-custom-template-sector:not(.scrolled) #masthead,
-  .archive.tax-product_cat:not(.scrolled) #masthead {
-    border-bottom: 1px solid #fff !important;
-  }
-
-  .page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .wp-block-site-logo,
-  .page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .wp-block-navigation__submenu-icon,
   .page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content,
   .page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .max-mega-menu > li > a,
   .page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .mega-toggle-block,
   .page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .wp-block-navigation__responsive-container-open,
-  .archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .wp-block-site-logo,
-  .archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .wp-block-navigation__submenu-icon,
   .archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content,
   .archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .max-mega-menu > li > a,
   .archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .mega-toggle-block,
   .archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .wp-block-navigation__responsive-container-open {
     filter: invert(1) grayscale(100) contrast(100);
   }
+}
+
+.page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .wp-block-site-logo,
+.page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .wp-block-navigation__submenu-icon,
+.page-template-wp-custom-template-sector:not(.scrolled):not(.menu-open) #masthead .mega-menu-toggle-animated-block,
+.archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .wp-block-site-logo,
+.archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .wp-block-navigation__submenu-icon,
+.archive.tax-product_cat:not(.scrolled):not(.menu-open) #masthead .mega-menu-toggle-animated-block {
+  filter: invert(1) grayscale(100) contrast(100);
 }
 
 .scrolled #masthead {
@@ -1417,6 +1438,14 @@ main {
       color: transparent;
       background: linear-gradient(90deg, var(--wp--preset--color--background) 0 0) 0/calc(var(--k) * 1ch) no-repeat text var(--wp--preset--color--primary);
     }
+  }
+}
+
+@media (max-width:781px) {
+
+  .move-up-block {
+    transform: translateY(-5rem);
+    transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
   }
 }
 
@@ -1658,6 +1687,16 @@ main {
 .woocommerce table.variations tr,
 .woocommerce table.shop_attributes tr {
   margin-bottom: 0;
+}
+
+@media (max-width:781px) {
+
+  .woocommerce table.variations tr td,
+  .woocommerce table.variations tr th,
+  .woocommerce table.shop_attributes tr td,
+  .woocommerce table.shop_attributes tr th {
+    padding-bottom: 0 !important;
+  }
 }
 
 .woocommerce table.variations tr th label,
