@@ -11,7 +11,9 @@
 
     
 .page-template-wp-custom-template-sector:not(.scrolled),
-.archive.tax-product_cat:not(.scrolled) {
+.archive.tax-product_cat:not(.scrolled),
+.blog:not(.scrolled),
+.archive:not(.scrolled) {
 
     #masthead {
         border-bottom: 1px solid #fff !important;
