@@ -11,7 +11,7 @@ add_filter( 'use_block_editor_for_post_type', 'activate_gutenberg_product', 10, 
 
 add_filter( 'loop_shop_per_page', 'smn_redefine_products_per_page', 9999 );
 function smn_redefine_products_per_page( $per_page ) {
-   $per_page = 24;
+   $per_page = 72;
    return $per_page;
 }
 

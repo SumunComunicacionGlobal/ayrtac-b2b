@@ -239,3 +239,33 @@ add_shortcode('sidebar', function($atts) {
     dynamic_sidebar($atts['id']);
     return ob_get_clean();
 });
+
+// Filter to modify block content before rendering
+add_filter('render_block', function($block_content, $block) {
+    // Example: Add a custom wrapper to all paragraph blocks
+    if ( is_singular( 'product' ) && $block['blockName'] === 'core/media-text') {
+
+        $product_categories = get_the_terms( get_the_ID(), 'product_cat' );
+        if ( $product_categories && ! is_wp_error( $product_categories ) ) {
+            $first_category = $product_categories[0];
+            $composicion_envases_personalizados_id = get_field( 'composicion_envases_personalizados', $first_category );
+
+            // if ($composicion_envases_personalizados_id) {
+            //     $image_url = wp_get_attachment_url($composicion_envases_personalizados_id);
+            //     if ($image_url) {
+            //         $block['attrs']['mediaUrl'] = $image_url;
+            //         if (isset($block['innerBlocks'][0]['attrs']['src'])) {
+            //             $block['innerBlocks'][0]['attrs']['src'] = $image_url;
+            //         }
+            //     }
+            // }
+
+            // Re-render the block with updated attributes
+            // $block_content = render_block($block);
+        }
+
+
+    }
+
+    return $block_content;
+}, 10, 2);

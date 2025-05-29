@@ -58,13 +58,6 @@ function acf_location_rule_values_Post( $choices ) {
     return $choices;
 }
 
-if ( $_SERVER['HTTP_HOST'] === 'localhost' ) {
-    add_filter( 'body_class', function( $classes ) {
-        $classes[] = 'filter-open';
-        return $classes;
-    });
-}
-
 // Agrega un filtro para el bloque de consulta de WordPress
 // que muestra los posts relacionados en la página de un post y los filtra por categorías
 add_filter('render_block_data', function ($parsed_block) {
