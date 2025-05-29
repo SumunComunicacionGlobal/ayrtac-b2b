@@ -101,25 +101,6 @@ function smn_echo_variation_info() {
 }
 
 
-// add_action('woocommerce_single_product_summary', function() {
-
-//     global $product;
-//     if ( ! $product->is_type( 'simple' ) ) {
-//         return;
-//     }
-
-//     echo 'test1';
-//     global $wp_query;
-//     if ( current_user_can( 'manage_options' ) ) :
-//         echo '<pre>';
-//             print_r ( $wp_query );
-//         echo '</pre>';
-//     endif;
-
-//     do_action( 'woocommerce_product_additional_information', $product );
-
-// }, 21);
-
 add_filter('woocommerce_product_get_attribute', function($value, $instance, $attribute_name) {
     if ($attribute_name === 'pa_capacidad') {
         $value .= '&nbsp;ml';
@@ -208,7 +189,8 @@ function smn_change_categories_dropdown_title( $block_content, $block ) {
     return $block_content;
 }
 
-add_filter('render_block', function($block_content, $block) {
+// add_filter('render_block', 'smn_intercalar_imagenes_en_listados_de_producto', 10, 2);
+function smn_intercalar_imagenes_en_listados_de_producto( $block_content, $block ) {
     // Verificar si estamos en una página de categoría de producto
     if (!is_product_category() || $block['blockName'] !== 'woocommerce/product-collection') {
         return $block_content;
@@ -255,7 +237,7 @@ add_filter('render_block', function($block_content, $block) {
     $block_content = implode('</li>', $products);
 
     return $block_content;
-}, 10, 2);
+}
 
 add_filter('render_block', function($block_content, $block) {
 
