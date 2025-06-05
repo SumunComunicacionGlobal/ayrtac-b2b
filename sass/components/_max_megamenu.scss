@@ -28,24 +28,57 @@ body {
         transition: all 0.3s ease-in-out;
     }
 
-    &.menu-open,
-    &.filter-open {
+    @media ( $above-mobile ) {
 
-        #masthead {
-            background-color: var(--wp--preset--color--neutral-white);
+        // &.filter-open,
+        &.menu-open {
+
+            #masthead {
+                background-color: var(--wp--preset--color--neutral-white);
+            }
+
+            &:before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+
         }
 
-        &:before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
+    }
 
+}
+
+@media ( $below-mobile ) {
+
+    body {
+
+        &.filter-open {
+
+            #filtro-col {
+                z-index: 99999999 !important;
+
+                &:before {
+                    content: "";
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            #masthead {
+                z-index: 0 !important;
+            }
+
+        }
     }
 
 }

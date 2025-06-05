@@ -333,17 +333,7 @@
 }
 
 #filtro {
-    transition: left 0.3s ease-in-out;
-    width: 340px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: -400px;
-    z-index: 99999999 !important;
     background-color: var(--wp--preset--color--background);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-    overscroll-behavior: contain;
 
     .wp-block-woocommerce-filter-wrapper .wp-block-heading {
         border-top: 1px solid var(--wp--preset--color--neutral-40);
@@ -353,12 +343,39 @@
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
 }
 
-body.filter-open {
+@media ( $below-mobile ) {
 
-    #filtro {
-        left: 0;
+    #filtro-col {
+        transition: left 0.3s ease-in-out;
+        width: 340px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -400px;
+        z-index: 99999999 !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: auto;
+        overscroll-behavior: contain;
     }
 
+    body.filter-open {
+
+        #filtro-col {
+            left: 0;
+        }
+
+    }
+
+}
+
+@media ( $above-mobile ) {
+
+    a[href="#abrir-filtro"],
+    a[href="#cerrar-filtro"] {
+        display: none;
+    }
+    
 }
