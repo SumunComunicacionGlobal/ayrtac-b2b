@@ -12,6 +12,14 @@
         .products-grid-sidebar {
             flex: 0 0 300px;
             border-right: 1px solid var(--wp--preset--color--neutral-60);
+
+            .facet-label {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                padding: 1rem;
+                border-top: 1px solid var(--wp--preset--color--neutral-40);
+                border-bottom: 1px solid var(--wp--preset--color--neutral-40);
+            }
         }
 
         .products-grid {
@@ -29,7 +37,7 @@
         @media ($below-mobile) {
             display: none;
         }
-        
+
     }
 
     .products-grid {
@@ -82,4 +90,9 @@
     padding: var(--wp--preset--spacing--20);
     background-color: var(--wp--preset--color--primary-90);
     color: var(--wp--preset--color--neutral-10);
+
+    .facetwp-facet {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }
