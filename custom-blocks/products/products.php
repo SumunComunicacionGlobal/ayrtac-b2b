@@ -53,6 +53,9 @@ if ( $products->have_posts() ) {
                             <img width="16" height="16" class="wp-image-1866" style="width: 16px;" src="https://envasesybotellasayrtac.com/wp-content/uploads/icono-filtro.svg" alt=""> 
                             <?php echo facetwp_i18n( __( 'Ver filtros', 'ayrtac' ) ); ?>
                         </a>
+
+                        <?php echo do_shortcode( '[facetwp facet="contador_resultados"]' ); ?>
+                        
                     </div>
                 </div>
             </div>
