@@ -235,6 +235,8 @@
         flex-direction: column;
         align-items: center;
         font-size: var(--wp--preset--font-size--small);
+        flex-basis: calc(50% - .25rem);
+        text-align: center;
 
         > span {
             
@@ -259,6 +261,10 @@
             }
             
         }
+
+        @media ($above-laptop) {
+            flex-basis: calc(25% - .5rem);
+        } 
     }
 }
 
