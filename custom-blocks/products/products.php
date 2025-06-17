@@ -52,7 +52,7 @@ if ( $products->have_posts() ) {
 
                         <?php echo do_shortcode( '[facetwp facet="contador_resultados"]' ); ?>
 
-                        <a class="facetwp-flyout-open wp-block-button__link has-small-font-size has-custom-font-size" href="javascript:;" style="border-style:none;border-width:0px;padding-right:0rem;padding-left:0rem">
+                        <a class="facetwp-flyout-open wp-block-button__link has-small-font-size has-custom-font-size" href="javascript:;" style="border-style:none;border-width:0px;padding-right:0rem !important;padding-left:0rem !important;">
                             <img width="16" height="16" class="wp-image-1866" style="width: 16px;" src="https://envasesybotellasayrtac.com/wp-content/uploads/icono-filtro.svg" alt=""> 
                             <?php echo facetwp_i18n( __( 'Ver filtros', 'ayrtac' ) ); ?>
                         </a>
