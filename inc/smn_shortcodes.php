@@ -86,8 +86,9 @@ add_shortcode('loop_atributos_producto', function() {
         $capacity = $product->get_attribute('pa_capacidad');
         $capacity = explode(', ', $capacity);
         sort($capacity, SORT_NUMERIC);
-        if ( count( $capacity) > 1 && ( min($capacity) != max($capacity) ) ) $capacity = [min($capacity) . '-' . max($capacity)];
-        $capacity = implode('-', $capacity);
+        // if ( count( $capacity) > 1 && ( min($capacity) != max($capacity) ) ) $capacity = [min($capacity) . '-' . max($capacity)];
+        // $capacity = implode('-', $capacity);
+        $capacity = implode(' · ', $capacity);
 
 
         if ( $product->is_type('variable') ) {
