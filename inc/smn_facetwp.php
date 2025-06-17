@@ -35,3 +35,19 @@ add_filter( 'facetwp_facet_html', function( $output, $params ) {
     }
     return $output;
 }, 10, 2 );
+
+add_action( 'wp_head', function() {
+  ?>
+  <script>
+    (function($) {
+      $(document).on('facetwp-loaded', function() {
+        if ( '' != FWP.buildQueryString() ) {
+          $('html, body').animate({
+            scrollTop: $('.facetwp-template').offset().top
+          }, 500);
+        }
+      });
+    })(jQuery);
+  </script>
+  <?php
+}, 100 );
