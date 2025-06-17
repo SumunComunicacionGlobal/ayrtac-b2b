@@ -270,3 +270,21 @@ add_filter('render_block', function($block_content, $block) {
 
     return $block_content;
 }, 10, 2);
+
+add_shortcode( 'pagina_asociada', 'smn_pagina_asociada' );
+function smn_pagina_asociada() {
+
+    if ( !is_product_category() ) return false;
+
+    $current_term = get_queried_object();
+    $page_id = get_field( 'pagina_asociada', $current_term );
+    if ( !$page_id ) return false;
+
+    $page = get_post( $page_id );
+    if ( !$page ) return false;
+
+    $content = apply_filters( 'the_content', $page->post_content );
+    
+    return $content;
+
+}
