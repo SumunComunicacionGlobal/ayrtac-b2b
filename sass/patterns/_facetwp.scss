@@ -1,0 +1,40 @@
+@use '../abstracts/mixins' as *;
+
+.facetwp-checkbox {
+    position: relative;
+    background: none !important;
+    padding-left: 2rem !important;
+    margin-bottom: .75rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: white !important;
+        border: 1px solid var(--wp--preset--color--neutral-60);
+        border-radius: 4px;
+
+    }
+    
+    &.checked:before {
+        background-color: var(--wp--preset--color--primary) !important;
+        border-color: var(--wp--preset--color--primary);
+    }
+
+    .facetwp-display-value {
+        padding-left: .5rem;
+    }
+}
+
+@media ($above-mobile) {
+    .facetwp-flyout-open {
+        display: none;
+    }
+}

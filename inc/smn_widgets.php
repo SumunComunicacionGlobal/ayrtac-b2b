@@ -24,5 +24,15 @@ function ayrtac_register_sidebars() {
         'after_title'   => '</h3>',
     ) );
 
+    register_sidebar( array(
+        'name'          => __( 'Filtro productos', 'ayrtac' ),
+        'id'            => 'filtro-productos',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+
 }
 add_action( 'widgets_init', 'ayrtac_register_sidebars' );

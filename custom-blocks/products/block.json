@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/products",
+  "version": "1.0.0",
+  "title": "Productos de una categoría con filtros Facet WP",
+  "category": "design",
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "products.php"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "smn",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

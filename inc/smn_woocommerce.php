@@ -57,6 +57,23 @@ function woocommerce_move_hooks() {
 
 }
 
+add_action('woocommerce_before_shop_loop_item_title', function() {
+    echo '<div class="product-title-wrapper">';
+        echo '<div class="wp-block-group product-title-group is-content-justification-space-between is-layout-flex">';
+}, 20);
+
+add_action('woocommerce_after_shop_loop_item_title', function() {
+
+            echo do_shortcode('[loop_colores_producto]');
+
+        echo '</div>'; // Close wp-block-group
+
+        echo do_shortcode('[loop_atributos_producto]');
+
+    echo '</div>'; // Close product-title-wrapper
+
+}, 5 );
+
 // Disable the additional information tab
 add_filter('woocommerce_product_tabs', 'remove_additional_information_tab', 98);
 function remove_additional_information_tab($tabs) {

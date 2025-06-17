@@ -82,6 +82,12 @@ require get_template_directory() . '/inc/smn_hooks.php';
 // WooCommerce
 require get_template_directory() . '/inc/smn_woocommerce.php';
 
+// FacetWP
+if ( defined( 'FACETWP_VERSION' ) ) {
+	// FacetWP is active.
+	require get_template_directory() . '/inc/smn_facetwp.php';
+}
+
 
 /* Quitar <p> y <br/> de Contact Form 7 */
 // add_filter('wpcf7_autop_or_not', '__return_false');
