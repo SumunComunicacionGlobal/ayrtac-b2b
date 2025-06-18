@@ -51,3 +51,28 @@ add_action( 'wp_head', function() {
   </script>
   <?php
 }, 100 );
+
+add_action( 'facetwp_scripts', function() {
+  ?>
+  <script>
+    (function($) {
+      document.addEventListener('facetwp-loaded', function() {
+        $.each(FWP.settings.num_choices, function(key, val) {
+ 
+          // assuming each facet is wrapped within a "facet-wrap" container element
+          // this may need to change depending on your setup, for example:
+          // change ".facet-wrap" to ".widget" if using WP text widgets
+ 
+          var $facet = $('.facetwp-facet-' + key);
+          var $wrap = $facet.closest('.facet-wrap');
+          var $flyout = $facet.closest('.flyout-row');
+          if ($wrap.length || $flyout.length) {
+            var $which = $wrap.length ? $wrap : $flyout;
+            (0 === val) ? $which.hide() : $which.show();
+          }
+        });
+      });
+    })(jQuery);
+  </script>
+  <?php
+}, 100 );
