@@ -68,11 +68,12 @@
         border-bottom: 1px solid;
         margin-bottom: 1em;
         flex-wrap: nowrap;
+        align-items: flex-start;
 
         .woocommerce-loop-product__title {
-            padding-top: 0;
+            padding-top: 0 !important;
             text-transform: uppercase;
-            font-size: var(--wp--preset--font-size--heading-5);
+            font-size: var(--wp--preset--font-size--heading-5) !important;
         }
     }
 

@@ -11,6 +11,8 @@ if ( ! $product_cat ) {
 $args = array(
     'post_type' => 'product',
     'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
     'facetwp' => true, // Enable FacetWP filtering
     'tax_query' => array(
         array(

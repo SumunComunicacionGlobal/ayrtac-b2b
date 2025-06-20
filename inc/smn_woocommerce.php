@@ -7,7 +7,7 @@ function activate_gutenberg_product( $can_edit, $post_type ) {
     }
     return $can_edit;
 }
-add_filter( 'use_block_editor_for_post_type', 'activate_gutenberg_product', 10, 2 );
+// add_filter( 'use_block_editor_for_post_type', 'activate_gutenberg_product', 10, 2 );
 
 add_filter( 'loop_shop_per_page', 'smn_redefine_products_per_page', 9999 );
 function smn_redefine_products_per_page( $per_page ) {
@@ -28,8 +28,8 @@ function enable_taxonomy_rest( $args ) {
     return $args;
 }
 
-add_filter( 'woocommerce_taxonomy_args_product_cat', 'enable_taxonomy_rest' );
-add_filter( 'woocommerce_taxonomy_args_product_tag', 'enable_taxonomy_rest' );
+// add_filter( 'woocommerce_taxonomy_args_product_cat', 'enable_taxonomy_rest' );
+// add_filter( 'woocommerce_taxonomy_args_product_tag', 'enable_taxonomy_rest' );
 
 
 // Make product category URLs not hierarchical
