@@ -22,6 +22,39 @@ function woocommerce_breadcrumb() {
     }
 }
 
+add_filter('rank_math/frontend/breadcrumb/items', function($crumbs) {
+
+    foreach ($crumbs as $i => $crumb) {
+
+       // Check if this crumb URL contains a path ("/catalogo/"), indicating a possible product_cat term
+        if (isset($crumb[1]) && strpos($crumb[1], '/catalogo/') !== false) {
+
+           
+            // Try to extract the slug from the URL path
+            $parts = parse_url($crumb[1]);
+
+            if (!empty($parts['path'])) {
+                $slug = basename(untrailingslashit($parts['path']));
+
+                $term = get_term_by('slug', $slug, 'product_cat');
+                $term_id = $term ? $term->term_id : 0;
+
+            } else {
+                $term_id = 0;
+            }
+            if ($term_id) {
+                $pagina_asociada = get_field('pagina_asociada', 'product_cat_' . $term_id);
+                if ($pagina_asociada) {
+                    $crumbs[$i][0] = get_the_title($pagina_asociada);
+                    $crumbs[$i][1] = get_permalink($pagina_asociada);
+                }
+            }
+        }
+    }
+    return $crumbs;
+
+}, 10, 1);
+
 // enable taxonomy fields for woocommerce with gutenberg on
 function enable_taxonomy_rest( $args ) {
     $args['show_in_rest'] = true;
@@ -281,11 +314,6 @@ add_filter('render_block', function($block_content, $block) {
 
 // Add ml to the attribute terms in the REST API response
 add_filter('rest_prepare_pa_capacidad', function($response, $attribute, $request) {
-    if ( current_user_can( 'manage_options' ) ) :
-        echo '<pre>test1';
-            print_r ( $attribute );
-        echo '</pre>';
-    endif;
     // Verificar si el atributo es "capacidad"
     if ($attribute->slug === 'pa_capacidad') {
         // Obtener los términos del atributo
