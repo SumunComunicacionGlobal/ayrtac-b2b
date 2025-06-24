@@ -151,7 +151,7 @@ li.product {
         &.woocommerce-product-attributes-item--attribute_pa_opciones,
         &[for="pa_opciones"] {
             &::before {
-                content: url("./assets/icons/icon-options.svg");
+                content: url("./assets/icons/icon-opciones.svg");
             }
         }
         &.woocommerce-product-attributes-item--weight {
