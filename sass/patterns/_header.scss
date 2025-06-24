@@ -26,7 +26,8 @@
             ul:not(.wp-block-navigation-submenu) > li > a.wp-block-navigation-item__content,
             .max-mega-menu > li > a,
             .mega-toggle-block,
-            .wp-block-navigation__responsive-container-open {
+            .wp-block-navigation__responsive-container-open,
+            .wp-block-button.is-style-with-arrow .wp-block-button__link {
                 filter: invert(1) grayscale(100) contrast(100);
             } 
         }
@@ -50,8 +51,4 @@
     // padding-bottom: .5rem !important;
     transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
 
-}
-
-body:not(.scrolled) #masthead .wp-block-button.is-style-with-arrow .wp-block-button__link {
-    color: var(--wp--preset--color--neutral-20) !important;
 }
