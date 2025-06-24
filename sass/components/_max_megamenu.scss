@@ -56,6 +56,14 @@ body {
 
 @media ( $below-mobile ) {
 
+    #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 > li.mega-menu-item {
+        margin-top: .5em;
+    }
+
+    #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 > li.mega-menu-tabbed > ul.mega-sub-menu > li.mega-menu-item {
+        margin-bottom: 1em;
+    }
+
     body {
 
         &.filter-open {
