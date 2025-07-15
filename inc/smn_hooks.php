@@ -80,3 +80,18 @@ add_filter('render_block_data', function ($parsed_block) {
 
     return $parsed_block;
 });
+
+add_filter('render_block', function($block_content, $block) {
+
+    if (
+        is_product() &&
+        isset($block['blockName']) &&
+        in_array($block['blockName'], ['core/post-excerpt', 'core/post-content'] )
+    ) {
+        if (!current_user_can('manage_options')) {
+            // Hide excerpt and content for users who can't manage options
+            return '';
+        }
+    }
+    return $block_content;
+}, 10, 2);
