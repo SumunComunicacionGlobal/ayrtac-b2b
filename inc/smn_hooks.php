@@ -88,7 +88,7 @@ add_filter('render_block', function($block_content, $block) {
         isset($block['blockName']) &&
         in_array($block['blockName'], ['core/post-excerpt', 'core/post-content'] )
     ) {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can('edit_posts')) {
             // Hide excerpt and content for users who can't manage options
             return '';
         }
