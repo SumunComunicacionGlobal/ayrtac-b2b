@@ -98,26 +98,31 @@
         color: var(--wp--preset--color--neutral-80);
     }
 
-    .cross-sell-product > a {
-        display: flex;
-        align-items: center;
-        gap: var(--wp--preset--spacing--20);
-        border-bottom: 1px solid var(--wp--preset--color--neutral-20);
-
-        &:first-child {
-            border-top: 1px solid var(--wp--preset--color--neutral-20);
-        }
+    .cross-sell-product {
         
-        .cross-sell-image {
-            width: 70px;
+        > div,
+        > a {
+            display: flex;
+            align-items: center;
+            gap: var(--wp--preset--spacing--20);
+            border-bottom: 1px solid var(--wp--preset--color--neutral-20);
+
+            &:first-child {
+                border-top: 1px solid var(--wp--preset--color--neutral-20);
+            }
+            
+            .cross-sell-image {
+                width: 70px;
+            }
+
+            .cross-sell-title {
+                padding: .5rem 0;
+                transition: transform 0.3s ease-in-out;
+            }
+        
         }
 
-        .cross-sell-title {
-            padding: .5rem 0;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        &:hover .cross-sell-title {
+        > a:hover .cross-sell-title {
             transform: translateX(.5rem);
         }
     }

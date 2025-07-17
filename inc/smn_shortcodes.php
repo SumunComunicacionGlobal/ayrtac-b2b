@@ -308,10 +308,11 @@ add_shortcode('cross_sells', function() {
         $cross_sell_product = wc_get_product($cross_sell_id);
         if ($cross_sell_product) {
             $output .= '<div class="cross-sell-product">';
-                $output .= '<a href="' . get_permalink($cross_sell_id) . '">';
-                    $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
-                    $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
-                $output .= '</a>';
+                // $output .= '<a href="' . get_permalink($cross_sell_id) . '">';
+                    $output .= '<div class="cross-sell-product__inner">';
+                        $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
+                        $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
+                $output .= '</div>';
             $output .= '</div>';
         }
     }
