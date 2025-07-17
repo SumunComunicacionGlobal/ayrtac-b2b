@@ -90,26 +90,36 @@
     }
 }
 
-.cross-sell-product > a {
-    display: flex;
-    align-items: center;
-    gap: var(--wp--preset--spacing--20);
-    border-bottom: 1px solid var(--wp--preset--color--neutral-20);
+.cross-sells-products {
 
-    &:first-child {
-        border-top: 1px solid var(--wp--preset--color--neutral-20);
-    }
-    
-    .cross-sell-image {
-        width: 70px;
+    .cross-sells-heading {
+        font-size: var(--wp--preset--font-size--heading-5);
+        text-transform: uppercase;
+        color: var(--wp--preset--color--neutral-80);
     }
 
-    .cross-sell-title {
-        padding: .5rem 0;
-        transition: transform 0.3s ease-in-out;
+    .cross-sell-product > a {
+        display: flex;
+        align-items: center;
+        gap: var(--wp--preset--spacing--20);
+        border-bottom: 1px solid var(--wp--preset--color--neutral-20);
+
+        &:first-child {
+            border-top: 1px solid var(--wp--preset--color--neutral-20);
+        }
+        
+        .cross-sell-image {
+            width: 70px;
+        }
+
+        .cross-sell-title {
+            padding: .5rem 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover .cross-sell-title {
+            transform: translateX(.5rem);
+        }
     }
 
-    &:hover .cross-sell-title {
-        transform: translateX(.5rem);
-    }
 }

@@ -303,7 +303,7 @@ add_shortcode('cross_sells', function() {
     }
 
     $output = '<div class="cross-sells-products">';
-    $output .= '<h2>' . sprintf( esc_html__('Cierres compatibles con %s', 'woocommerce'), esc_html($product->get_name()) ) . '</h2>';
+    $output .= '<h2 class="cross-sells-heading">' . sprintf( esc_html__('Cierres compatibles con %s', 'woocommerce'), esc_html($product->get_name()) ) . '</h2>';
     foreach ($cross_sells_ids as $cross_sell_id) {
         $cross_sell_product = wc_get_product($cross_sell_id);
         if ($cross_sell_product) {
