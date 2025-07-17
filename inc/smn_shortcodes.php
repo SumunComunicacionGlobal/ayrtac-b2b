@@ -309,7 +309,7 @@ add_shortcode('cross_sells', function() {
         if ($cross_sell_product) {
             $output .= '<div class="cross-sell-product">';
                 $output .= '<a href="' . get_permalink($cross_sell_id) . '">';
-                    $output .= $cross_sell_product->get_image('woocommerce_thumbnail');
+                    $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
                     $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
                 $output .= '</a>';
             $output .= '</div>';
