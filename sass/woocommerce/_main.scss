@@ -45,6 +45,7 @@
 
 .wc-block-product,
 li.product {
+    overflow: hidden;
 
     .wp-post-image,
     .attachment-woocommerce_thumbnail,
@@ -57,7 +58,7 @@ li.product {
 
         .wp-post-image,
         .attachment-woocommerce_thumbnail {
-            transform: translateY(-1rem);
+            transform: translateY(-.25rem);
         }
     }
 

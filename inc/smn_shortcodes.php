@@ -288,3 +288,34 @@ function smn_pagina_asociada() {
     return $content;
 
 }
+
+add_shortcode('cross_sells', function() {
+    global $product;
+
+    if (!$product || !is_a($product, 'WC_Product')) {
+        return '';
+    }
+
+    $cross_sells_ids = $product->get_cross_sell_ids();
+
+    if (empty($cross_sells_ids)) {
+        return '';
+    }
+
+    $output = '<div class="cross-sells-products">';
+    $output .= '<h2>' . sprintf( esc_html__('Cierres compatibles con %s', 'woocommerce'), esc_html($product->get_name()) ) . '</h2>';
+    foreach ($cross_sells_ids as $cross_sell_id) {
+        $cross_sell_product = wc_get_product($cross_sell_id);
+        if ($cross_sell_product) {
+            $output .= '<div class="cross-sell-product">';
+                $output .= '<a href="' . get_permalink($cross_sell_id) . '">';
+                    $output .= $cross_sell_product->get_image('woocommerce_thumbnail');
+                    $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
+                $output .= '</a>';
+            $output .= '</div>';
+        }
+    }
+    $output .= '</div>';
+
+    return $output;
+});

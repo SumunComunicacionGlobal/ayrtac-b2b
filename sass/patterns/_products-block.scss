@@ -89,3 +89,27 @@
         margin-bottom: 1rem;
     }
 }
+
+.cross-sell-product > a {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--20);
+    border-bottom: 1px solid var(--wp--preset--color--neutral-20);
+
+    &:first-child {
+        border-top: 1px solid var(--wp--preset--color--neutral-20);
+    }
+    
+    .attachment-woocommerce_thumbnail {
+        width: 70px;
+    }
+
+    .cross-sell-title {
+        padding: .5rem 0;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover .cross-sell-title {
+        transform: translateX(.5rem);
+    }
+}
