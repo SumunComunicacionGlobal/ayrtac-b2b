@@ -581,3 +581,12 @@ function display_product_variations_table() {
 }
 */
 
+add_action('woocommerce_product_options_related', function() {
+    echo '<style>
+        #upsell_ids, 
+        label[for="upsell_ids"], 
+        label[for="upsell_ids"] + select + span,
+        label[for="upsell_ids"] + select + span + span 
+            { display: none !important; }
+    </style>';
+});
