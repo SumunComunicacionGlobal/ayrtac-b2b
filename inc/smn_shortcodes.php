@@ -298,37 +298,37 @@ add_shortcode('cross_sells', function() {
 
     $cross_sells_ids = $product->get_cross_sell_ids();
 
-    $tapas_term_id = 100;
+    // $tapas_term_id = 100;
 
-    $current_cierres = $product->get_attribute('pa_cierre');
-    $current_cierres = array_map('trim', explode(',', $current_cierres));
+    // $current_cierres = $product->get_attribute('pa_cierre');
+    // $current_cierres = array_map('trim', explode(',', $current_cierres));
 
-    if (!empty($current_cierres)) {
-        
-        $category_products = get_posts(array(
-            'post_type'      => 'product',
-            'posts_per_page' => -1,
-            'fields'         => 'ids',
-            'exclude'        => array($product->get_id()),
-            'tax_query'      => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'product_cat',
-                'field'    => 'term_id',
-                'terms'    => $tapas_term_id,
-            ),
-            array(
-                'taxonomy' => 'pa_cierre',
-                'field'    => 'slug',
-                'terms'    => array_map('sanitize_title', $current_cierres),
-            ),
-            ),
-        ));
+    // if (!empty($current_cierres)) {
 
-        $cross_sells_ids = array_merge($cross_sells_ids, $category_products);
+    //     $category_products = get_posts(array(
+    //         'post_type'      => 'product',
+    //         'posts_per_page' => -1,
+    //         'fields'         => 'ids',
+    //         'exclude'        => array($product->get_id()),
+    //         'tax_query'      => array(
+    //         'relation' => 'AND',
+    //         array(
+    //             'taxonomy' => 'product_cat',
+    //             'field'    => 'term_id',
+    //             'terms'    => $tapas_term_id,
+    //         ),
+    //         array(
+    //             'taxonomy' => 'pa_cierre',
+    //             'field'    => 'slug',
+    //             'terms'    => array_map('sanitize_title', $current_cierres),
+    //         ),
+    //         ),
+    //     ));
+
+    //     $cross_sells_ids = array_merge($cross_sells_ids, $category_products);
  
-    }
-    $cross_sells_ids = array_unique($cross_sells_ids);
+    // }
+    // $cross_sells_ids = array_unique($cross_sells_ids);
 
     if (empty($cross_sells_ids)) {
         return '';
