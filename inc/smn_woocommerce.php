@@ -92,12 +92,18 @@ function woocommerce_move_hooks() {
 
 add_action('woocommerce_before_shop_loop_item_title', function() {
     echo '<div class="product-title-wrapper">';
-        echo '<div class="wp-block-group product-title-group is-content-justification-space-between is-layout-flex">';
+        echo '<div class="wp-block-group product-title-group">';
 }, 20);
 
 add_action('woocommerce_after_shop_loop_item_title', function() {
 
-            echo do_shortcode('[loop_colores_producto]');
+            echo '<div class="woocommerce-loop-product__subtitle">';
+                $pa_cierre = wc_get_product_terms( get_the_ID(), 'pa_cierre', array( 'fields' => 'names' ) );
+                if ( ! empty( $pa_cierre ) ) {
+                    echo '<span class="product-pa-cierre">' . esc_html( implode( ', ', $pa_cierre ) ) . '</span>';
+                }
+                echo do_shortcode('[loop_colores_producto]');
+            echo '</div>';
 
         echo '</div>'; // Close wp-block-group
 
