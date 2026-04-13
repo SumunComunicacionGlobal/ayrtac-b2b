@@ -54,23 +54,28 @@ add_shortcode('loop_colores_producto', function() {
         return '';
     }
 
-    $colors = wp_get_post_terms($product->get_id(), 'pa_color', array('fields' => 'ids'));
-
-    if (empty($colors)) {
-        return '';
+    $color_terms = wp_get_post_terms($product->get_id(), 'pa_color', array('fields' => 'names'));
+    if (!empty($color_terms)) {
+        return implode(', ', $color_terms);
     }
 
-    $output = '<div class="loop-product-colors">';
-    foreach ($colors as $color) {
-        $term = get_term($color);
-        $swatch_id = get_term_meta($color, 'product_attribute_image', true);
-        if ($swatch_id) {
-            $output .= '<span class="loop-color-swatch" title="' . esc_attr($term->name) . '">' . wp_get_attachment_image( $swatch_id, 'thumbnail' ) . '</span>';
-        }
-    }
-    $output .= '</div>';
+    // $colors = wp_get_post_terms($product->get_id(), 'pa_color', array('fields' => 'ids'));
 
-    return $output;
+    // if (empty($colors)) {
+    //     return '';
+    // }
+
+    // $output = '<div class="loop-product-colors">';
+    // foreach ($colors as $color) {
+    //     $term = get_term($color);
+    //     $swatch_id = get_term_meta($color, 'product_attribute_image', true);
+    //     if ($swatch_id) {
+    //         $output .= '<span class="loop-color-swatch" title="' . esc_attr($term->name) . '">' . wp_get_attachment_image( $swatch_id, 'thumbnail' ) . '</span>';
+    //     }
+    // }
+    // $output .= '</div>';
+
+    // return $output;
 });
 
 // Shortcode to display a row with capacity, dimensions, and weight
@@ -289,7 +294,7 @@ function smn_pagina_asociada() {
 
 }
 
-add_shortcode('cross_sells', function() {
+add_shortcode('cross_sells', function () {
     global $product;
 
     if (!$product || !is_a($product, 'WC_Product')) {
@@ -298,58 +303,50 @@ add_shortcode('cross_sells', function() {
 
     $cross_sells_ids = $product->get_cross_sell_ids();
 
-    // $tapas_term_id = 100;
-
-    // $current_cierres = $product->get_attribute('pa_cierre');
-    // $current_cierres = array_map('trim', explode(',', $current_cierres));
-
-    // if (!empty($current_cierres)) {
-
-    //     $category_products = get_posts(array(
-    //         'post_type'      => 'product',
-    //         'posts_per_page' => -1,
-    //         'fields'         => 'ids',
-    //         'exclude'        => array($product->get_id()),
-    //         'tax_query'      => array(
-    //         'relation' => 'AND',
-    //         array(
-    //             'taxonomy' => 'product_cat',
-    //             'field'    => 'term_id',
-    //             'terms'    => $tapas_term_id,
-    //         ),
-    //         array(
-    //             'taxonomy' => 'pa_cierre',
-    //             'field'    => 'slug',
-    //             'terms'    => array_map('sanitize_title', $current_cierres),
-    //         ),
-    //         ),
-    //     ));
-
-    //     $cross_sells_ids = array_merge($cross_sells_ids, $category_products);
- 
-    // }
-    // $cross_sells_ids = array_unique($cross_sells_ids);
-
     if (empty($cross_sells_ids)) {
         return '';
     }
 
     $output = '<div class="cross-sells-products">';
-    $output .= '<h2 class="cross-sells-heading">' . sprintf( esc_html__('Cierres compatibles con %s', 'woocommerce'), esc_html($product->get_name()) ) . '</h2>';
+    $output .= '<h2 class="cross-sells-heading">' . sprintf(esc_html__('Cierres compatibles con %s', 'woocommerce'), esc_html($product->get_name())) . '</h2>';
+
     foreach ($cross_sells_ids as $cross_sell_id) {
         $cross_sell_product = wc_get_product($cross_sell_id);
-        if ($cross_sell_product) {
+        if (!$cross_sell_product) continue;
+
+        // Si es un producto simple
+        if ($cross_sell_product->is_type('simple')) {
             $output .= '<div class="cross-sell-product">';
-                // $output .= '<a href="' . get_permalink($cross_sell_id) . '">';
+            $output .= '<div class="cross-sell-product__inner">';
+            $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
+            $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
+            $output .= '</div></div>';
+
+        // Si es un producto variable
+        } elseif ($cross_sell_product->is_type('variable')) {
+            $available_variations = $cross_sell_product->get_available_variations();
+            foreach ($available_variations as $variation_data) {
+                $variation = wc_get_product($variation_data['variation_id']);
+                if ($variation) {
+                    $output .= '<div class="cross-sell-product">';
                     $output .= '<div class="cross-sell-product__inner">';
-                        $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
-                        $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
-                $output .= '</div>';
-            $output .= '</div>';
+                    $output .= $variation->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
+                    $output .= '<span class="cross-sell-title">' . esc_html($variation->get_description() ?: $variation->get_name()) . '</span>';
+                    $output .= '</div></div>';
+                }
+            }
+
+        // Si es una variación directa
+        } elseif ($cross_sell_product->is_type('variation')) {
+            $output .= '<div class="cross-sell-product">';
+            $output .= '<div class="cross-sell-product__inner">';
+            $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
+            $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_description() ?: $cross_sell_product->get_name()) . '</span>';
+            $output .= '</div></div>';
         }
     }
+
     $output .= '</div>';
 
     return $output;
 });
-
