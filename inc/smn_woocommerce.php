@@ -226,13 +226,13 @@ add_filter('render_block', function($block_content, $block) {
         }
     }
 
-    if (
-        $block['blockName'] === 'core/post-title' && 
-        isset( $block['attrs']['__woocommerceNamespace']) && 
-        $block['attrs']['__woocommerceNamespace'] == 'woocommerce/product-collection/product-title' 
-    ) {
-        $block_content .= do_shortcode('[loop_colores_producto]');
-    }
+    // if (
+    //     $block['blockName'] === 'core/post-title' && 
+    //     isset( $block['attrs']['__woocommerceNamespace']) && 
+    //     $block['attrs']['__woocommerceNamespace'] == 'woocommerce/product-collection/product-title' 
+    // ) {
+    //     $block_content .= do_shortcode('[loop_colores_producto]');
+    // }
 
     return $block_content;
 }, 10, 2);
