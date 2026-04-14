@@ -51,24 +51,27 @@ textarea {
 }
 
 button[type="submit"], input[type="submit"] {
-	background-color: transparent;
-	color: inherit;
-	border: 2px solid;
-	font-weight: bold;
-	border-radius: var(--wp--custom--border-radius--rounded);
-	padding: calc(0.5rem + 4px) 1.5em;
-	cursor: pointer;
 
-	&:after {
-		content: '';
-		display: inline-block;
-		width: 24px;
-		height: 24px;
-		margin-left: .5rem;
-		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
-		mask-image: url(./assets/icons/arrow-right.svg);
-		mask-size: cover;
-		mask-repeat: no-repeat;
-		transition: padding-left 0.3s ease;
+	&:not(.wp-block-search__button) {
+		background-color: transparent;
+		color: inherit;
+		border: 2px solid;
+		font-weight: bold;
+		border-radius: var(--wp--custom--border-radius--rounded);
+		padding: calc(0.5rem + 4px) 1.5em;
+		cursor: pointer;
+
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-left: .5rem;
+			background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
+			mask-image: url(./assets/icons/arrow-right.svg);
+			mask-size: cover;
+			mask-repeat: no-repeat;
+			transition: padding-left 0.3s ease;
+		}
 	}
 }
