@@ -334,7 +334,7 @@ add_shortcode('cross_sells', function () {
             $output .= '<div class="cross-sell-product">';
             $output .= '<div class="cross-sell-product__inner">';
             $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
-            $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_name()) . '</span>';
+            $output .= '<span class="cross-sell-title cross-sell-product-id-' . esc_attr($cross_sell_product->get_id()) . '">' . esc_html($cross_sell_product->get_name()) . '</span>';
             $output .= '</div></div>';
 
         // Si es un producto variable
@@ -346,7 +346,7 @@ add_shortcode('cross_sells', function () {
                     $output .= '<div class="cross-sell-product">';
                     $output .= '<div class="cross-sell-product__inner">';
                     $output .= $variation->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
-                    $output .= '<span class="cross-sell-title">' . esc_html($variation->get_description() ?: $variation->get_name()) . '</span>';
+                    $output .= '<span class="cross-sell-title cross-sell-product-id-' . esc_attr($variation->get_id()) . '">' . esc_html($variation->get_description() ?: $variation->get_name()) . '</span>';
                     $output .= '</div></div>';
                 }
             }
@@ -356,7 +356,7 @@ add_shortcode('cross_sells', function () {
             $output .= '<div class="cross-sell-product">';
             $output .= '<div class="cross-sell-product__inner">';
             $output .= $cross_sell_product->get_image('woocommerce_thumbnail', array('class' => 'cross-sell-image'));
-            $output .= '<span class="cross-sell-title">' . esc_html($cross_sell_product->get_description() ?: $cross_sell_product->get_name()) . '</span>';
+            $output .= '<span class="cross-sell-title cross-sell-product-id-' . esc_attr($cross_sell_product->get_id()) . '">' . esc_html($cross_sell_product->get_description() ?: $cross_sell_product->get_name()) . '</span>';
             $output .= '</div></div>';
         }
     }
